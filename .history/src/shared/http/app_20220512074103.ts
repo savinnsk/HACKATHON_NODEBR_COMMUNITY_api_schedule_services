@@ -14,7 +14,7 @@ app.use(router)
 
 AppDataSource.initialize().then(async () => {
    console.log("database conected")
-   await app.listen(3000 , console.log("serving running"))
+   await app.listen(3000 , ci)
 
 }).catch(error => console.log(error))
 

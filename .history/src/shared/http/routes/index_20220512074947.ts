@@ -5,6 +5,6 @@ import { usersRoutes } from "./users.routes";
 const router = Router()
 
 router.use("/users" ,usersRoutes);
-router.use("/services" ,schedulingsRoutes)
+router.use("/services" ,servicesRoutes)
 
 export {router}
