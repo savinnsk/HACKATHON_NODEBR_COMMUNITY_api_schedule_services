@@ -1,0 +1,13 @@
+{
+    "type": "postgres",
+    "port": 5432,
+    "host": "localhost",
+    "username": "docker",
+    "password": "docker",
+    "database": "scheduling",
+    "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+    "entities": ["./src/modules/**/entities/*.ts"],
+    "cli": {
+        "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    }
+}
