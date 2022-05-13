@@ -6,6 +6,6 @@ import { usersRoutes } from "./users.routes";
 const router = Router();
 
 router.use("/users", usersRoutes);
-router.use("/schedule", schedulingsRoutes);
+router.use("/services", schedulingsRoutes);
 
 export { router };
