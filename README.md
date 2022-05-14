@@ -76,7 +76,7 @@
 
 **RF**
 
-o prestador de serviço deve poder Deletar seu serviço
+* o prestador de serviço deve poder Deletar seu serviço
 
 
 **RN**
@@ -187,8 +187,8 @@ O serviço deve ser criado pelo usuario administrador.
 
 **RF**
 
-Deve ser possivél buscar serviço pelo nome 
-Deve ser possivél buscar serviço pelo tipo/Categoria
+* Deve ser possivél buscar serviço pelo nome 
+* Deve ser possivél buscar serviço pelo tipo/Categoria
 
 
 
