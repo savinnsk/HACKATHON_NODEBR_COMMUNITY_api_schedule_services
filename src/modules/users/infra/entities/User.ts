@@ -1,24 +1,24 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-@Entity("users")
+@Entity("usuarios")
 class User {
   @PrimaryColumn()
   id: string;
 
-  @Column()
+  @Column({ name: "nome" })
   name: string;
 
-  @Column()
+  @Column({ name: "telefone" })
   contact: string;
 
-  @Column()
+  @Column({ name: "endereco" })
   address: string;
 
   @Column()
   email: string;
 
-  @Column()
+  @Column({ name: "senha" })
   password: string;
 
   constructor() {

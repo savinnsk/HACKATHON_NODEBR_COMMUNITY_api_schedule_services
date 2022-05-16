@@ -190,8 +190,18 @@ O serviço deve ser criado pelo usuario administrador.
 * Deve ser possivél buscar serviço pelo nome 
 * Deve ser possivél buscar serviço pelo tipo/Categoria
 
+----------------------------------------------------------------
 
+## Comandos úteis
 
+**Subir o docker:**
+docker-compose up -d --build
 
+**Criar a migration:**
+yarn run typeorm migration:create -n CriarUsuario
 
+**Executar a migration:**
+yarn run typeorm migration:run
 
+**Reverter a migration:**
+yarn run typeorm migration:revert

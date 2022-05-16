@@ -6,16 +6,17 @@
       "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli"
    },
    "dependencies": {
-      "bcrypt": "^5.0.1",
+      "bcryptjs": "^2.4.3",
       "dotenv": "^16.0.1",
       "express": "^4.18.1",
       "express-async-errors": "^3.1.1",
+      "express-validator": "^6.14.0",
       "install": "^0.13.0",
       "jsonwebtoken": "^8.5.1",
       "pg": "^8.7.3",
       "reflect-metadata": "^0.1.13",
       "tsyringe": "^4.6.0",
-      "typeorm": "0.3.4",
+      "typeorm": "^0.2.43",
       "uuid": "^8.3.2"
    },
    "devDependencies": {
