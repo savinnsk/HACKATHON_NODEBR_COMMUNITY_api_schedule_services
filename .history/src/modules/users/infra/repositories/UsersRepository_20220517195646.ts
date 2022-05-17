@@ -10,7 +10,7 @@ class UsersRepository implements IUsersRepository {
   private repository: Repository<User>;
 
   constructor() {
-    this.repository = AppDataSource.getRepository(User);
+    this.repository = getRepository(User);
   }
 
   async create({
@@ -32,13 +32,13 @@ class UsersRepository implements IUsersRepository {
   }
 
   async findByEmail(email: string): Promise<User> {
-    const user = await this.repository.findOneBy({ email });
+    const user = await this.repository.findOne({ email });
 
     return user;
   }
 
   async findById(id: string): Promise<User> {
-    const user = await this.repository.findOneBy({ id });
+    const user = await this.repository.findOne(id);
 
     return user;
   }
