@@ -58,8 +58,10 @@ class AuthenticateUserUseCase {
         email: user.email,
       },
     };
-
-    return tokenReturn;
+    return {
+      user,
+      token,
+    };
   }
 }
 

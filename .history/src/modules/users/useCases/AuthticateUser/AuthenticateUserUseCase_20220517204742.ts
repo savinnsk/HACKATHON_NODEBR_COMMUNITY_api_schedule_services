@@ -51,15 +51,16 @@ class AuthenticateUserUseCase {
       }
     );
 
-    const tokenReturn: IResponse = {
+    const tokenReturn : IResponse {
       token,
-      user: {
-        name: user.name,
-        email: user.email,
-      },
+      user : {
+        
+      }
+    }
+    return {
+      user,
+      token,
     };
-
-    return tokenReturn;
   }
 }
 

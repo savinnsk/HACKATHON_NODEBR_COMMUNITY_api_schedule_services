@@ -32,7 +32,7 @@ class AuthenticateUserUseCase {
       throw new AppError("Email ou senha incorreta");
     }
 
-    const passwordMatch = await compare(password, user.password);
+    const passwordMatch = await compare(user.password, password);
 
     if (!passwordMatch) {
       throw new AppError("Email ou senha incorreta**");
@@ -51,15 +51,10 @@ class AuthenticateUserUseCase {
       }
     );
 
-    const tokenReturn: IResponse = {
+    return {
+      user,
       token,
-      user: {
-        name: user.name,
-        email: user.email,
-      },
     };
-
-    return tokenReturn;
   }
 }
 
