@@ -1,11 +1,11 @@
-import {MigrationInterface, QueryRunner} from "typeorm";
+import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
 export class CreateServiceProviderUser1652659019701 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "prestador_servico",
+                name: "service_providers",
                 columns: [
                     {
                         name: "id",
@@ -13,15 +13,15 @@ export class CreateServiceProviderUser1652659019701 implements MigrationInterfac
                         isPrimary: true,
                     },
                     {
-                        name: "nome",
+                        name: "name",
                         type: "varchar"
                     },
                     {
-                        name: "telefone",
+                        name: "contact",
                         type: "varchar"
                     },
                     {
-                        name: "endereco",
+                        name: "address",
                         type: "varchar"
                     },
                     {
@@ -29,7 +29,7 @@ export class CreateServiceProviderUser1652659019701 implements MigrationInterfac
                         type: "varchar"
                     },
                     {
-                        name: "senha",
+                        name: "password",
                         type: "varchar"
                     }
                 ]
@@ -38,7 +38,7 @@ export class CreateServiceProviderUser1652659019701 implements MigrationInterfac
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("prestador_servico");
+        await queryRunner.dropTable("service_providers");
     }
 
 }
