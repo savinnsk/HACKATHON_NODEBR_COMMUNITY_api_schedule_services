@@ -5,6 +5,8 @@ import { inject, injectable } from "tsyringe";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
+import auth from "../../../../config/auth.js";
+
 interface IRequest {
   email: string;
   password: string;
@@ -38,18 +40,10 @@ class AuthenticateUserUseCase {
       throw new AppError("Email ou senha incorreta**");
     }
 
-    const token = sign(
-      {
-        // gerar webtoken
-        // payload
-      },
-      // secret word md5 "batata"
-      "9eb71ab7420eb452a22787ca4fab501b",
-      {
-        subject: user.id,
-        expiresIn: "1d",
-      }
-    );
+    const token = sign({}, auth.service_provider_secret_token, {
+      subject: user.id,
+      expiresIn: "1d",
+    });
 
     const tokenReturn: IResponse = {
       token,

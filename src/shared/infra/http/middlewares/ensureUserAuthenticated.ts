@@ -4,11 +4,13 @@ import { verify } from "jsonwebtoken";
 import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
+import auth from "../../../../config/auth.js";
+
 interface IPayload {
   sub: string;
 }
 
-export async function ensureAuthenticated(
+export async function ensureUserAuthenticated(
   request: Request,
   response: Response,
   next: NextFunction
@@ -29,7 +31,7 @@ export async function ensureAuthenticated(
     const { sub: user_id } = verify(
       token,
       // secret key
-      "9eb71ab7420eb452a22787ca4fab501b"
+      auth.user_secret_token
     ) as IPayload;
 
     console.log(user_id);
@@ -38,10 +40,11 @@ export async function ensureAuthenticated(
     const user = await usersRepository.findById(user_id);
 
     if (!user) {
-      throw new Error("User does not exists");
+      throw new Error("Usuário não existe");
     }
+    
     next();
   } catch (err) {
-    throw new AppError("invalid token");
+    throw new AppError("Token inválido");
   }
 }
