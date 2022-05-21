@@ -24,8 +24,6 @@ class CreateSchedulingUseCase {
     service_provider,
     appointments,
   }: IRequest) {
-    console.log("ok1");
-
     await this.schedulingsRepository.create({
       type,
       description,
