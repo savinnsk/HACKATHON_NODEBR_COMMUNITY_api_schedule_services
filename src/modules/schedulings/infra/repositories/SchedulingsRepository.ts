@@ -19,8 +19,6 @@ class SchedulingsRepository implements ISchedulingsRepository {
     service_provider,
     appointments,
   }: ICreateSchedulingDTO): Promise<void> {
-    console.log('ok2');
-
     throw new Error("Method not implemented.");
 
     // const user = this.repository.create({

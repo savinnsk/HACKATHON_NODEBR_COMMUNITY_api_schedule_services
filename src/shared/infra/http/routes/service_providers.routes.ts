@@ -1,14 +1,21 @@
 import { Router } from "express";
 
+import { AuthenticateServiceProviderController } from "@modules/service_providers/useCases/AuthenticateServiceProvider/AuthenticateServiceProviderController";
 import { CreateServiceProviderController } from "@modules/service_providers/useCases/CreateServiceProvider/CreateServiceProviderController";
-import { AuthenticateUserController } from "@modules/users/useCases/AuthenticateUser/AuthenticateUserController";
 
-const createUserController = new CreateServiceProviderController();
-const authenticateUserController = new AuthenticateUserController();
+const createServiceProviderController = new CreateServiceProviderController();
+const authenticateServiceProviderController =
+  new AuthenticateServiceProviderController();
 
 const serviceProvidersRoutes = Router();
 
-serviceProvidersRoutes.post("/register", createUserController.handle);
-serviceProvidersRoutes.post("/session", authenticateUserController.handle);
+serviceProvidersRoutes.post(
+  "/register",
+  createServiceProviderController.handle
+);
+serviceProvidersRoutes.post(
+  "/session",
+  authenticateServiceProviderController.handle
+);
 
 export { serviceProvidersRoutes };

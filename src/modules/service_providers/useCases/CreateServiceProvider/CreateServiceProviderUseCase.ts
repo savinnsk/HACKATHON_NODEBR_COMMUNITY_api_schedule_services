@@ -1,9 +1,9 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "@shared/errors/AppError";
 import { ICreateServiceProviderDTO } from "@modules/service_providers/dto/ICreateServiceProviderDTO";
 import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
+import { AppError } from "@shared/errors/AppError";
 
 @injectable()
 class CreateServiceProviderUseCase {
