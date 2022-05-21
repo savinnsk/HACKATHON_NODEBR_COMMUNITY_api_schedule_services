@@ -26,7 +26,17 @@ export class CreateSchedulings1652919772839 implements MigrationInterface {
                     },
                     {
                         name: "service_provider_id",
-                        type: "varchar"
+                        type: "uuid",
+                    },
+                    {
+                        name: "available_status",
+                        type: "boolean",
+                        default: "true"
+                    },
+                    {
+                        name: "deleted_at",
+                        type: "timestamp",
+                        isNullable: true
                     }
                 ]
             })
