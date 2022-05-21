@@ -3,7 +3,6 @@ interface ICreateSchedulingDTO {
   description: string;
   price: number;
   service_provider: string;
-  appointments: Date[];
 }
 
 export { ICreateSchedulingDTO };

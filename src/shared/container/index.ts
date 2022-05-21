@@ -1,6 +1,8 @@
 import { container } from "tsyringe";
 
+import { AppointmentsRepository } from "@modules/schedulings/infra/repositories/AppointmentsRepository";
 import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/SchedulingsRepository";
+import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppointmentsRepository";
 import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
 import { ServiceProvidersRepository } from "@modules/service_providers/infra/repositories/ServiceProvidersRepository";
 import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
@@ -20,4 +22,9 @@ container.registerSingleton<IServiceProvidersRepository>(
 container.registerSingleton<ISchedulingsRepository>(
   "SchedulingsRepository",
   SchedulingsRepository
+);
+
+container.registerSingleton<IAppointmentsRepository>(
+  "AppointmentsRepository",
+  AppointmentsRepository
 );
