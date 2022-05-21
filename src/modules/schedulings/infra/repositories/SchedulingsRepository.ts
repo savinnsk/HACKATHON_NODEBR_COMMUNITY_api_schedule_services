@@ -33,6 +33,22 @@ class SchedulingsRepository implements ISchedulingsRepository {
   findById(id: string): Promise<Scheduling> {
     throw new Error("Method not implemented.");
   }
+
+  async listAll(): Promise<Scheduling[]> {
+    return this.repository
+      .createQueryBuilder("scheduling")
+      .leftJoin("scheduling.appointments", "appointments")
+      .select([
+        "scheduling.type",
+        "scheduling.description",
+        "scheduling.price",
+        "scheduling.available_status",
+        "appointments.id",
+        "appointments.appointment_time",
+        "appointments.available",
+      ])
+      .getMany();
+  }
 }
 
 export { SchedulingsRepository };
