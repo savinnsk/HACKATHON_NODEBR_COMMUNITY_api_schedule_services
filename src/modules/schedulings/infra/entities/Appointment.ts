@@ -33,6 +33,9 @@ class Appointment {
   @Column()
   rating: number;
 
+  @Column()
+  comment: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuidV4();

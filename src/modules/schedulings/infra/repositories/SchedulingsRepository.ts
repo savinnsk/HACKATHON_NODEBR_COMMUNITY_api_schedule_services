@@ -17,19 +17,17 @@ class SchedulingsRepository implements ISchedulingsRepository {
     description,
     price,
     service_provider,
-    appointments,
-  }: ICreateSchedulingDTO): Promise<void> {
-    throw new Error("Method not implemented.");
+  }: ICreateSchedulingDTO): Promise<Scheduling> {
+    const scheduling = this.repository.create({
+      type,
+      description,
+      price,
+      service_provider_id: service_provider,
+    });
 
-    // const user = this.repository.create({
-    //   name,
-    //   contact,
-    //   address,
-    //   email,
-    //   password,
-    // });
+    await this.repository.save(scheduling);
 
-    // await this.repository.save(user);
+    return scheduling;
   }
 
   findById(id: string): Promise<Scheduling> {

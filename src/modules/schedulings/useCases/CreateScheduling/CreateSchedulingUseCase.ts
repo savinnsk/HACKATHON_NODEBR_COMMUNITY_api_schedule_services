@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
+import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppointmentsRepository";
 import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
 
 interface IRequest {
@@ -10,11 +11,17 @@ interface IRequest {
   appointments: Date[];
 }
 
+interface ISchedulingDTO {
+  id: string;
+}
+
 @injectable()
 class CreateSchedulingUseCase {
   constructor(
     @inject("SchedulingsRepository")
-    private schedulingsRepository: ISchedulingsRepository
+    private schedulingsRepository: ISchedulingsRepository,
+    @inject("AppointmentsRepository")
+    private appointmentsRepository: IAppointmentsRepository
   ) {}
 
   async execute({
@@ -24,12 +31,16 @@ class CreateSchedulingUseCase {
     service_provider,
     appointments,
   }: IRequest) {
-    await this.schedulingsRepository.create({
+    const scheduling = (await this.schedulingsRepository.create({
       type,
       description,
       price,
       service_provider,
-      appointments,
+    })) as ISchedulingDTO;
+
+    await this.appointmentsRepository.create({
+      scheduling: scheduling.id,
+      appointment_time: appointments,
     });
   }
 }

@@ -35,6 +35,11 @@ export class CreateAppointments1652920051619 implements MigrationInterface {
                         name: "rating",
                         type: "numeric",
                         isNullable: true,
+                    },
+                    {
+                        name: "comment",
+                        type: "varchar",
+                        isNullable: true,
                     }
                 ],
                 foreignKeys: [

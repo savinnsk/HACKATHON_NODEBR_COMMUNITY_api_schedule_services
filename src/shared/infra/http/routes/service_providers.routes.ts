@@ -13,6 +13,7 @@ serviceProvidersRoutes.post(
   "/register",
   createServiceProviderController.handle
 );
+
 serviceProvidersRoutes.post(
   "/session",
   authenticateServiceProviderController.handle
