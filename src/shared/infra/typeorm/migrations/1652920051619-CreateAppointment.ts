@@ -17,7 +17,7 @@ export class CreateAppointments1652920051619 implements MigrationInterface {
                         type: "uuid",
                     },
                     {
-                        name: "created_at",
+                        name: "appointment_time",
                         type: "timestamp",
                         default: "now()",
                     },
@@ -26,6 +26,16 @@ export class CreateAppointments1652920051619 implements MigrationInterface {
                         type: "boolean",
                         default: "true",
                     },
+                    {
+                        name: "user_id",
+                        type: "uuid",
+                        isNullable: true,
+                    },
+                    {
+                        name: "rating",
+                        type: "numeric",
+                        isNullable: true,
+                    }
                 ],
                 foreignKeys: [
                     {
@@ -35,6 +45,14 @@ export class CreateAppointments1652920051619 implements MigrationInterface {
                         columnNames: ["scheduling_id"],
                         onDelete: "CASCADE",
                         onUpdate: "CASCADE"
+                    },
+                    {
+                        name: "FKUserId",
+                        referencedTableName: "users",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["user_id"],
+                        onDelete: "SET NULL",
+                        onUpdate: "SET NULL"
                     },
                 ]
             })
