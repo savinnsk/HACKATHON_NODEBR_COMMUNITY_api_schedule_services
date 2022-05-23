@@ -13,7 +13,6 @@
 
 **RN**
 
-* O usuario prestador de serviços deve ser criado por outro prestador de serviços autenticado.
 * Não deve ser possivél cadastrar um já cadastrado.
 
 **RNF**
