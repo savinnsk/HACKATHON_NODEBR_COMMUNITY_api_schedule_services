@@ -52,7 +52,7 @@ export class CreateAppointments1652920051619 implements MigrationInterface {
           },
           {
             name: "FKUserId",
-            referencedTableName: "users",
+            referencedTableName: "usuarios",
             referencedColumnNames: ["id"],
             columnNames: ["user_id"],
             onDelete: "SET NULL",

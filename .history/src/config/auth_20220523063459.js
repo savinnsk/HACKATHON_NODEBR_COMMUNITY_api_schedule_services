@@ -1,7 +1,3 @@
-/* eslint-disable lines-around-directive */
-// eslint-disable-next-line strict
-"use strict";
-
 require("dotenv/config");
 
 Object.defineProperty(exports, "__esModule", {
