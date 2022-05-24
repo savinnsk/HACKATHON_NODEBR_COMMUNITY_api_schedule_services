@@ -1,0 +1,3 @@
+class ListAllServicesOfProviderController {}
+
+export { ListAllServicesOfProviderController };

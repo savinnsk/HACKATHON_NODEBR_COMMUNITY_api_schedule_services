@@ -10,7 +10,11 @@ const authenticateUserController = new AuthenticateUserController();
 
 const usersRoutes = Router();
 
-usersRoutes.post("/register", createUserController.handle);
+usersRoutes.post(
+  "/register",
+  ensureUserAuthenticated,
+  createUserController.handle
+);
 
 usersRoutes.post("/session", authenticateUserController.handle);
 

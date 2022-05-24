@@ -47,7 +47,7 @@ class ServiceProvidersRepository implements IServiceProvidersRepository {
     return this.repository
       .createQueryBuilder("scheduling")
       .leftJoinAndSelect("scheduling.appointments", "appointments")
-      .where("service_provider_id = :id", { id })
+      .where("user.idservice_provider_id = :id", { id })
       .getMany();
   }
 }

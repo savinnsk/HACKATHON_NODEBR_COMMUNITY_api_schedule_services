@@ -1,15 +1,7 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  PrimaryColumn,
-} from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
 import { ServiceProvider } from "@modules/service_providers/infra/entities/ServiceProvider";
-
 import { Appointment } from "./Appointment";
 
 @Entity("schedulings")

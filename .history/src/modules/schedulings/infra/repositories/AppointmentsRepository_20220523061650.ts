@@ -17,9 +17,8 @@ class AppointmentsRepository implements IAppointmentsRepository {
     scheduling,
     appointment_time,
   }: ICreateAppointmentDTO): Promise<void> {
-    // eslint-disable-next-line no-useless-catch
     try {
-      appointment_time.forEach(async (time) => {
+      await appointment_time.forEach(async (time) => {
         const appointment = this.repository.create({
           scheduling_id: scheduling,
           appointment_time: time,

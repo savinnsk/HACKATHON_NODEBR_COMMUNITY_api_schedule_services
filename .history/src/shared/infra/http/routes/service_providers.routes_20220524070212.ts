@@ -23,9 +23,6 @@ serviceProvidersRoutes.post(
   authenticateServiceProviderController.handle
 );
 
-serviceProvidersRoutes.get(
-  "/services",
-  listAllServicesOfProviderController.handle
-);
+serviceProvidersRoutes.get("/services");
 
 export { serviceProvidersRoutes };

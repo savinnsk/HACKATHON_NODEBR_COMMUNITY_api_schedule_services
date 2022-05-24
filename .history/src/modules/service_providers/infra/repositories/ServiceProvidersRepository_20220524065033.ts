@@ -43,11 +43,11 @@ class ServiceProvidersRepository implements IServiceProvidersRepository {
     return serviceProvider;
   }
 
-  async listAllServices(id: string): Promise<any> {
+  async listAllServices(id: string): any {
     return this.repository
       .createQueryBuilder("scheduling")
       .leftJoinAndSelect("scheduling.appointments", "appointments")
-      .where("service_provider_id = :id", { id })
+      .where("user.idservice_provider_id = :id", { id })
       .getMany();
   }
 }

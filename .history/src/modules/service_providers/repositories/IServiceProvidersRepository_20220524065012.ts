@@ -5,7 +5,7 @@ interface IServiceProvidersRepository {
   create(data: ICreateServiceProviderDTO): Promise<void>;
   findByEmail(email: string): Promise<ServiceProvider>;
   findById(id: string): Promise<ServiceProvider>;
-  listAllServices(id: string): Promise<any>;
+  listAllServices(id: string): amy;
 }
 
 export { IServiceProvidersRepository };

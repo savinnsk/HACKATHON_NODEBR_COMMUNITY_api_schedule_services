@@ -1,0 +1,3 @@
+class ListAllServicesOfProvider {}
+
+export { ListAllServicesOfProvider };

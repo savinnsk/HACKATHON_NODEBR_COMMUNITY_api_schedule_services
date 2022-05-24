@@ -1,6 +1,5 @@
 import { getRepository, Repository } from "typeorm";
 
-// import { Scheduling } from "@modules/schedulings/infra/entities/Scheduling";
 import { ICreateServiceProviderDTO } from "@modules/service_providers/dto/ICreateServiceProviderDTO";
 import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
 
@@ -41,14 +40,6 @@ class ServiceProvidersRepository implements IServiceProvidersRepository {
     const serviceProvider = await this.repository.findOne(id);
 
     return serviceProvider;
-  }
-
-  async listAllServices(id: string): Promise<any> {
-    return this.repository
-      .createQueryBuilder("scheduling")
-      .leftJoinAndSelect("scheduling.appointments", "appointments")
-      .where("service_provider_id = :id", { id })
-      .getMany();
   }
 }
 

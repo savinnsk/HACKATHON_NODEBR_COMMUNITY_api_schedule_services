@@ -7,7 +7,7 @@ import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISched
 class ListSchedulingsUseCase {
   constructor(
     @inject("SchedulingsRepository")
-    private schedulingsRepository: ISchedulingsRepository
+    private schedulingsRepository: ISchedulingsRepository,
   ) {}
 
   async execute(): Promise<Scheduling[]> {
