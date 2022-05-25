@@ -5,15 +5,15 @@ import { ListAllServicesOfProviderUseCase } from "./ListAllServicesOfProviderUse
 
 class ListAllServicesOfProviderController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { id } = request.body;
+    const { id } = request.service_provider;
 
     const listAllServicesOfProviderUseCase = container.resolve(
       ListAllServicesOfProviderUseCase
     );
 
-    await listAllServicesOfProviderUseCase.execute(id);
+    const services = await listAllServicesOfProviderUseCase.execute(id);
 
-    return response.status(201).send();
+    return response.status(200).send(services);
   }
 }
 
