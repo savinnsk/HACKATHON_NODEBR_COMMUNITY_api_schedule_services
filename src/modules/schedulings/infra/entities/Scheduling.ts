@@ -30,7 +30,10 @@ class Scheduling {
   service_provider_id: string;
 
   @JoinColumn({ name: "service_provider_id" })
-  @ManyToOne(() => ServiceProvider)
+  @ManyToOne(
+    () => ServiceProvider,
+    (serviceProvider) => serviceProvider.schedulings
+  )
   serviceProvider: ServiceProvider;
 
   @Column()

@@ -1,5 +1,7 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+
+import { Scheduling } from "@modules/schedulings/infra/entities/Scheduling";
 
 @Entity("service_providers")
 class ServiceProvider {
@@ -18,8 +20,11 @@ class ServiceProvider {
   @Column()
   email: string;
 
-  @Column()
+  @Column({ select: false })
   password: string;
+
+  @OneToMany(() => Scheduling, (scheduling) => scheduling.serviceProvider)
+  schedulings: Scheduling[];
 
   constructor() {
     if (!this.id) {
