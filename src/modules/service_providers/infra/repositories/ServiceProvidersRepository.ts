@@ -47,6 +47,18 @@ class ServiceProvidersRepository implements IServiceProvidersRepository {
     return this.repository
       .createQueryBuilder("service_provider")
       .leftJoinAndSelect("service_provider.schedulings", "schedulings")
+      .select([
+        "service_provider.name",
+        "service_provider.contact",
+        "service_provider.address",
+        "service_provider.email",
+        "schedulings.type",
+        "schedulings.description",
+        "schedulings.price",
+        "schedulings.available_status",
+        "schedulings.created_at",
+        "schedulings.deleted_at",
+      ])
       .where("service_provider.id = :id", { id })
       .getMany();
   }

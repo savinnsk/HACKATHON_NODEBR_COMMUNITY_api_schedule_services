@@ -28,19 +28,23 @@ class AuthenticateServiceProviderUseCase {
   ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
+    
     const serviceProvider = await this.serviceProvidersRepository.findByEmail(
       email
-    );
-
-    if (!serviceProvider) {
-      throw new AppError("Email ou senha incorreta");
-    }
-
-    const passwordMatch = await compare(password, serviceProvider.password);
+      );
+      
+      if (!serviceProvider) {
+        throw new AppError("Email ou senha incorreta");
+      }
+      
+      const passwordMatch = await compare(password, serviceProvider.password);
+      console.log('ok1');
 
     if (!passwordMatch) {
       throw new AppError("Email ou senha incorreta**");
     }
+
+    
 
     const token = sign({}, auth.service_provider_secret_token, {
       subject: serviceProvider.id,

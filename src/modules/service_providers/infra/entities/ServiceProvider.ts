@@ -20,7 +20,7 @@ class ServiceProvider {
   @Column()
   email: string;
 
-  @Column({ select: false })
+  @Column()
   password: string;
 
   @OneToMany(() => Scheduling, (scheduling) => scheduling.serviceProvider)

@@ -11,10 +11,17 @@ class ListSchedulingsUseCase {
     private schedulingsRepository: ISchedulingsRepository
   ) {}
 
-  async execute({ description, type }: ISearchDTO): Promise<Scheduling[]> {
+  async execute({
+    description,
+    type,
+    page = 1,
+    limit = 5,
+  }: ISearchDTO): Promise<Scheduling[]> {
     const schedulings = await this.schedulingsRepository.searchByParameters({
       description,
       type,
+      page,
+      limit,
     });
 
     return schedulings;

@@ -40,6 +40,9 @@ class Scheduling {
   available_status: boolean;
 
   @Column()
+  created_at: Date;
+
+  @Column()
   deleted_at: Date;
 
   @OneToMany(() => Appointment, (appointment) => appointment.scheduling)
