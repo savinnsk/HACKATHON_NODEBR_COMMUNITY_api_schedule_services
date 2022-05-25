@@ -34,6 +34,11 @@ export class CreateSchedulings1652919772839 implements MigrationInterface {
                         default: "true"
                     },
                     {
+                        name: "created_at",
+                        type: "timestamp",
+                        default: "now()"
+                    },
+                    {
                         name: "deleted_at",
                         type: "timestamp",
                         isNullable: true

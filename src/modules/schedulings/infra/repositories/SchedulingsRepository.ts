@@ -54,12 +54,17 @@ class SchedulingsRepository implements ISchedulingsRepository {
   async searchByParameters({
     description,
     type,
+    page,
+    limit,
   }: ISearchDTO): Promise<Scheduling[]> {
+    // const descriptionSanitized = description;
+
     const descriptionSanitized = description
-      ? description.toString().toLowerCase()
+      ? `%${description.toString().toLowerCase()}%`
       : null;
 
-    const typeSanitized = type ? type.toString().toLowerCase() : null;
+    // console.log(descriptionSanitized);
+    const typeSanitized = type ? `%${type.toString().toLowerCase()}%` : null;
 
     return this.repository
       .createQueryBuilder("scheduling")
@@ -73,12 +78,15 @@ class SchedulingsRepository implements ISchedulingsRepository {
         "appointments.appointment_time",
         "appointments.available",
       ])
-      .where("LOWER(scheduling.type) = :type", {
+      .where("LOWER(scheduling.type) like :type", {
         type: `%${typeSanitized}%`,
       })
-      .orWhere("LOWER(scheduling.description) = :description", {
+      .orWhere("LOWER(scheduling.description) like :description", {
         description: `%${descriptionSanitized}%`,
       })
+      .orderBy("scheduling.created_at", "ASC")
+      .limit(limit)
+      .offset((page - 1) * limit)
       .getMany();
   }
 }
