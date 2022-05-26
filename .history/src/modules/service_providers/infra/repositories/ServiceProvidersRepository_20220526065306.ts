@@ -56,6 +56,7 @@ class ServiceProvidersRepository implements IServiceProvidersRepository {
         "schedulings.description",
         "schedulings.price",
         "schedulings.available_status",
+        "schedulings.created_at",
         "schedulings.deleted_at",
       ])
       .where("service_provider.id = :id", { id })

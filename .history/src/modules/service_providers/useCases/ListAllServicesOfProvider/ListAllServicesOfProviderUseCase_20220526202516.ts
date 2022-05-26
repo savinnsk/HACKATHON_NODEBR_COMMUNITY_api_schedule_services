@@ -9,12 +9,10 @@ class ListAllServicesOfProviderUseCase {
     private serviceProvidersRepository: IServiceProvidersRepository
   ) {}
 
-  async execute(service_provider_id) {
-    const serviceProvider = await this.serviceProvidersRepository.findById(
-      service_provider_id
-    );
+  async execute(service_provider: string) {
+    const services = await this.serviceProvidersRepository.listAllServices(id);
 
-    return this.serviceProvidersRepository.listAllServices(serviceProvider.id);
+    return services;
   }
 }
 

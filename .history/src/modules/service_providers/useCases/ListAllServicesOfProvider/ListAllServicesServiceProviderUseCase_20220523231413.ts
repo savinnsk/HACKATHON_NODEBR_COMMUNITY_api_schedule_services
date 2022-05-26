@@ -1,3 +1,0 @@
-class ListAllServicesOfProvider {}
-
-export { ListAllServicesOfProvider };

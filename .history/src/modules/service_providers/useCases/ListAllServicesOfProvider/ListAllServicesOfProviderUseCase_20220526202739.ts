@@ -1,5 +1,6 @@
 import { injectable, inject } from "tsyringe";
 
+import { ServiceProvider } from "@modules/service_providers/infra/entities/ServiceProvider";
 import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
 
 @injectable()
@@ -14,7 +15,7 @@ class ListAllServicesOfProviderUseCase {
       service_provider_id
     );
 
-    return this.serviceProvidersRepository.listAllServices(serviceProvider.id);
+    return await this.serviceProvidersRepository.listAllServices(id);
   }
 }
 

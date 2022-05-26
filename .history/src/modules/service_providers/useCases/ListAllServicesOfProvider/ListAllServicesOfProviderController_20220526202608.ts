@@ -11,11 +11,9 @@ class ListAllServicesOfProviderController {
       ListAllServicesOfProviderUseCase
     );
 
-    const services = await listAllServicesOfProviderUseCase.execute(
-      service_provider.id
-    );
+    await listAllServicesOfProviderUseCase.execute(service_provider.id);
 
-    return response.status(200).send(services);
+    return response.status(200).send();
   }
 }
 

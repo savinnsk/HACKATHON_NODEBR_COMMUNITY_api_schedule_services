@@ -6,16 +6,15 @@ import { ListAllServicesOfProviderUseCase } from "./ListAllServicesOfProviderUse
 class ListAllServicesOfProviderController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { service_provider } = request;
+    console.log(service_provider);
 
     const listAllServicesOfProviderUseCase = container.resolve(
       ListAllServicesOfProviderUseCase
     );
 
-    const services = await listAllServicesOfProviderUseCase.execute(
-      service_provider.id
-    );
+    await listAllServicesOfProviderUseCase.execute(service_provider.id);
 
-    return response.status(200).send(services);
+    return response.status(200).send();
   }
 }
 

@@ -15,7 +15,7 @@ class ListAllServicesOfProviderController {
       service_provider.id
     );
 
-    return response.status(200).send(services);
+    return response.status(200).send();
   }
 }
 
