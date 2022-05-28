@@ -5,11 +5,7 @@ import { DisableSchedulingUseCase } from "./DisableSchedulingUseCase";
 
 class DisableSchedulingController {
   async handle(request: Request, response: Response) {
-    const { id } = request.params;
-
-    const disableScheduling = container.resolve(DisableSchedulingUseCase);
-
-    disableScheduling.execute(id);
+    container.resolve(DisableSchedulingUseCase);
   }
 }
 

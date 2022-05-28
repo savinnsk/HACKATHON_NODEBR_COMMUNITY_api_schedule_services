@@ -8,11 +8,6 @@ class DisableSchedulingUseCase {
     @inject("SchedulingsRepository")
     private schedulingsRepository: SchedulingsRepository
   ) {}
-
-  async execute(id: string): Promise<void> {
-    const scheuling = await this.schedulingsRepository.findById(id);
-    await this.schedulingsRepository.disableScheduling(id, available_status);
-  }
 }
 
 export { DisableSchedulingUseCase };

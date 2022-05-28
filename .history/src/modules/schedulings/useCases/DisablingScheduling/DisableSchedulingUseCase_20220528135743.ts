@@ -9,8 +9,7 @@ class DisableSchedulingUseCase {
     private schedulingsRepository: SchedulingsRepository
   ) {}
 
-  async execute(id: string): Promise<void> {
-    const scheuling = await this.schedulingsRepository.findById(id);
+  async execute(id: string, available_status: boolean) {
     await this.schedulingsRepository.disableScheduling(id, available_status);
   }
 }

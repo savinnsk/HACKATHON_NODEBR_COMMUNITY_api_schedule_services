@@ -8,8 +8,6 @@ class DisableSchedulingController {
     const { id } = request.params;
 
     const disableScheduling = container.resolve(DisableSchedulingUseCase);
-
-    disableScheduling.execute(id);
   }
 }
 
