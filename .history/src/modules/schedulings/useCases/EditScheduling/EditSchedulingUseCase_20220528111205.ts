@@ -1,7 +1,14 @@
 import { inject, injectable } from "tsyringe";
 
-import { IEditSchedulingDTO } from "@modules/schedulings/dto/IEditSchedulingDTO";
+import { Scheduling } from "@modules/schedulings/infra/entities/Scheduling";
 import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/SchedulingsRepository";
+
+interface IRequest {
+  id;
+  type: string;
+  description: string;
+  price: number;
+}
 
 @injectable()
 class EditSchedulingUseCase {
@@ -16,8 +23,8 @@ class EditSchedulingUseCase {
     description,
     price,
     available_status,
-  }: IEditSchedulingDTO): Promise<void> {
-    await this.schedulingRepository.editScheduling({
+  }: Scheduling): Promise<void> {
+    this.schedulingRepository.editScheduling({
       id,
       type,
       description,

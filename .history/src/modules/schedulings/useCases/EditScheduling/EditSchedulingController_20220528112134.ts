@@ -6,20 +6,9 @@ import { EditSchedulingUseCase } from "./EditSchedulingUseCase";
 class EditSchedulingController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { type, description, available_status, price } = request.body;
-
-    const { id } = request.service_provider;
+    const { id } = request.service_provider.id;
 
     const editSchedulingUseCase = container.resolve(EditSchedulingUseCase);
-
-    await editSchedulingUseCase.execute({
-      id,
-      type,
-      description,
-      available_status,
-      price,
-    });
-
-    return response.status(201).send();
   }
 }
 

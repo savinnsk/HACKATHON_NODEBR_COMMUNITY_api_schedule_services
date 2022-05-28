@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
-import { IEditSchedulingDTO } from "@modules/schedulings/dto/IEditSchedulingDTO";
+import { Scheduling } from "@modules/schedulings/infra/entities/Scheduling";
 import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/SchedulingsRepository";
 
 @injectable()
@@ -10,21 +10,13 @@ class EditSchedulingUseCase {
     private schedulingRepository: SchedulingsRepository
   ) {}
 
-  async execute({
+  async execute(
     id,
     type,
     description,
     price,
-    available_status,
-  }: IEditSchedulingDTO): Promise<void> {
-    await this.schedulingRepository.editScheduling({
-      id,
-      type,
-      description,
-      price,
-      available_status,
-    });
-  }
+    available_status
+  ): Promise<Scheduling> {}
 }
 
 export { EditSchedulingUseCase };

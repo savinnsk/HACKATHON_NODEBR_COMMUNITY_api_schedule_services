@@ -18,8 +18,6 @@ class EditSchedulingController {
       available_status,
       price,
     });
-
-    return response.status(201).send();
   }
 }
 

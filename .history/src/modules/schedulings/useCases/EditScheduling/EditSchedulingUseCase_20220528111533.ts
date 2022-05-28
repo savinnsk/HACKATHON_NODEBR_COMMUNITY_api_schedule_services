@@ -17,7 +17,7 @@ class EditSchedulingUseCase {
     price,
     available_status,
   }: IEditSchedulingDTO): Promise<void> {
-    await this.schedulingRepository.editScheduling({
+    this.schedulingRepository.editScheduling({
       id,
       type,
       description,
