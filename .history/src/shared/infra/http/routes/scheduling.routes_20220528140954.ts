@@ -1,7 +1,6 @@
 import { Router } from "express";
 
 import { CreateSchedulingController } from "@modules/schedulings/useCases/CreateScheduling/CreateSchedulingController";
-import { DisableSchedulingController } from "@modules/schedulings/useCases/DisablingScheduling/DisableSchedulingController";
 import { EditSchedulingController } from "@modules/schedulings/useCases/EditScheduling/EditSchedulingController";
 import { ListSchedulingsController } from "@modules/schedulings/useCases/ListSchedulings/ListSchedulingsController";
 import { SearchSchedulingController } from "@modules/schedulings/useCases/SearchScheduling/SearchSchedulingController";
@@ -14,7 +13,6 @@ const createSchedulingController = new CreateSchedulingController();
 const listSchedulingsController = new ListSchedulingsController();
 const searchSchedulingController = new SearchSchedulingController();
 const editSchedulingController = new EditSchedulingController();
-const disableSchedulingController = new DisableSchedulingController();
 
 schedulingsRoutes.post(
   "/create",
@@ -28,7 +26,7 @@ schedulingsRoutes.put(
   editSchedulingController.handle
 );
 
-schedulingsRoutes.put("/disable/:id", disableSchedulingController.handle);
+schedulingsRoutes.put("/disable/:id");
 
 schedulingsRoutes.get("/", listSchedulingsController.handle);
 

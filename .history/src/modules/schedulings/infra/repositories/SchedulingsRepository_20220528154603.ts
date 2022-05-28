@@ -116,13 +116,13 @@ class SchedulingsRepository implements ISchedulingsRepository {
   }
 
   async disableScheduling(
-    id: string
-    // available_status: boolean
+    id: string,
+    available_status: boolean
   ): Promise<void> {
     await this.repository
       .createQueryBuilder()
       .update(Scheduling)
-      .set({ available_status: false })
+      .set({ available_status = false })
       .where("id = :id", { id })
       .execute();
   }

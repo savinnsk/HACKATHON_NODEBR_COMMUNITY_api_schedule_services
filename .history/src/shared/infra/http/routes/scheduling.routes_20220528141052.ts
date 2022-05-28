@@ -28,7 +28,7 @@ schedulingsRoutes.put(
   editSchedulingController.handle
 );
 
-schedulingsRoutes.put("/disable/:id", disableSchedulingController.handle);
+schedulingsRoutes.put("/disable/:id", disableSchedulingController);
 
 schedulingsRoutes.get("/", listSchedulingsController.handle);
 

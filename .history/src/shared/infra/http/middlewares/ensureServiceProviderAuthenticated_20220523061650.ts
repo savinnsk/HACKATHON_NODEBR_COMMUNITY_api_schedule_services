@@ -34,6 +34,8 @@ export async function ensureServiceProviderAuthenticated(
       auth.service_provider_secret_token
     ) as IPayload;
 
+    console.log(user_id);
+
     const serviceProvidersRepository = new ServiceProvidersRepository();
     const user = await serviceProvidersRepository.findById(user_id);
 

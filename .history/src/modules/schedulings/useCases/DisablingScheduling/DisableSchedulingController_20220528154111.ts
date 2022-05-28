@@ -9,7 +9,7 @@ class DisableSchedulingController {
 
     const disableScheduling = container.resolve(DisableSchedulingUseCase);
 
-    await disableScheduling.execute(id);
+    disableScheduling.execute(id);
 
     return response.status(201).send();
   }
