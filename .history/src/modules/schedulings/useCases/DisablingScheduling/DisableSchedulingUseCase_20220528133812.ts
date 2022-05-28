@@ -1,0 +1,3 @@
+class DisableSchedulingController {}
+
+export { DisableSchedulingController };

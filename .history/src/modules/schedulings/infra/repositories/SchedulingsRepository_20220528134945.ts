@@ -121,8 +121,7 @@ class SchedulingsRepository implements ISchedulingsRepository {
       .createQueryBuilder()
       .update(Scheduling)
       .set({ available_status })
-      .where("id = :id", { id })
-      .execute();
+      .where("id = :id", { id });
   }
 }
 

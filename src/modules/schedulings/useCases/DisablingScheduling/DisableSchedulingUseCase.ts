@@ -1,0 +1,3 @@
+class DisableSchedulingUseCase {}
+
+export { DisableSchedulingUseCase };
