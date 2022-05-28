@@ -6,7 +6,7 @@ import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/S
 @injectable()
 class EditSchedulingUseCase {
   constructor(
-    @inject("SchedulingsRepository")
+    @inject("SchedulingRepository")
     private schedulingRepository: SchedulingsRepository
   ) {}
 
@@ -18,7 +18,7 @@ class EditSchedulingUseCase {
     available_status,
   }: IEditSchedulingDTO): Promise<void> {
     await this.schedulingRepository.editScheduling({
-      service_provider_id,
+      service_provider,
       type,
       description,
       price,

@@ -19,14 +19,10 @@ schedulingsRoutes.post(
   createSchedulingController.handle
 );
 
-schedulingsRoutes.put(
-  "/edit",
-  ensureServiceProviderAuthenticated,
-  editSchedulingController.handle
-);
-
 schedulingsRoutes.get("/", listSchedulingsController.handle);
 
 schedulingsRoutes.get("/search", searchSchedulingController.handle);
+
+schedulingsRoutes.put("/edit", editSchedulingController);
 
 export { schedulingsRoutes };

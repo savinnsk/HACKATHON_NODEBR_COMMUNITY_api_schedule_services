@@ -12,7 +12,7 @@ class EditSchedulingController {
     const editSchedulingUseCase = container.resolve(EditSchedulingUseCase);
 
     await editSchedulingUseCase.execute({
-      service_provider_id: id,
+      service_provider: id,
       type,
       description,
       available_status,

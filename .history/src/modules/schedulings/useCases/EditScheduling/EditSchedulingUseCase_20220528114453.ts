@@ -6,7 +6,7 @@ import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/S
 @injectable()
 class EditSchedulingUseCase {
   constructor(
-    @inject("SchedulingsRepository")
+    @inject("SchedulingRepository")
     private schedulingRepository: SchedulingsRepository
   ) {}
 
