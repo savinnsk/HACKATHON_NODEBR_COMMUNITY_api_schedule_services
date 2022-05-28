@@ -11,14 +11,14 @@ class EditSchedulingUseCase {
   ) {}
 
   async execute({
-    id,
+    scheduling_id,
     type,
     description,
     price,
     available_status,
   }: IEditSchedulingDTO): Promise<void> {
     await this.schedulingRepository.editScheduling({
-      id,
+      scheduling_id,
       type,
       description,
       price,

@@ -108,7 +108,7 @@ class SchedulingsRepository implements ISchedulingsRepository {
         available_status,
       })
       .where("id = :id", {
-        id,
+        scheduling_id,
       })
       .execute();
   }

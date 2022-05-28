@@ -8,6 +8,7 @@ class EditSchedulingController {
     const { type, description, available_status, price } = request.body;
 
     const { id } = request.params;
+    console.log("erro", id);
 
     const editSchedulingUseCase = container.resolve(EditSchedulingUseCase);
 

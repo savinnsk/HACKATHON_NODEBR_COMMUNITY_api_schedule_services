@@ -7,12 +7,12 @@ class EditSchedulingController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { type, description, available_status, price } = request.body;
 
-    const { id } = request.params;
+    const { idScheduling } = request.params;
 
     const editSchedulingUseCase = container.resolve(EditSchedulingUseCase);
 
     const schedulingUpdated = await editSchedulingUseCase.execute({
-      id,
+      id: idScheduling,
       type,
       description,
       available_status,

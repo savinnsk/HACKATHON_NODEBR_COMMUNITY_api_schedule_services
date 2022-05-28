@@ -20,7 +20,7 @@ schedulingsRoutes.post(
 );
 
 schedulingsRoutes.put(
-  "/edit/:id",
+  "/edit:id",
   ensureServiceProviderAuthenticated,
   editSchedulingController.handle
 );

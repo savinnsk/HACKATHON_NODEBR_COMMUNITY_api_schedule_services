@@ -92,7 +92,7 @@ class SchedulingsRepository implements ISchedulingsRepository {
   }
 
   async editScheduling({
-    id,
+    scheduling_id,
     type,
     description,
     price,
@@ -107,8 +107,8 @@ class SchedulingsRepository implements ISchedulingsRepository {
         price,
         available_status,
       })
-      .where("id = :id", {
-        id,
+      .where("id = :service_provider_id", {
+        scheduling_id,
       })
       .execute();
   }

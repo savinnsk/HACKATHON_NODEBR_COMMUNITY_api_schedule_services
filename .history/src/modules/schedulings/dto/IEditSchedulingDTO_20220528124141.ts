@@ -1,5 +1,5 @@
 export interface IEditSchedulingDTO {
-  id: string;
+  scheduling_id: string;
   type: string;
   description: string;
   price: number;
