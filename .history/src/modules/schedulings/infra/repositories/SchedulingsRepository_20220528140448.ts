@@ -33,9 +33,8 @@ class SchedulingsRepository implements ISchedulingsRepository {
   }
 
   findById(id: string): Promise<Scheduling> {
-    const scheduling = this.repository.findOne(id);
-
-    return scheduling;
+    this.repository.findOne(id);
+    throw new Error("Method not implemented.");
   }
 
   async listAll(): Promise<Scheduling[]> {
