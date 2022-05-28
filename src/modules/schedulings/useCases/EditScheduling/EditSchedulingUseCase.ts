@@ -1,0 +1,3 @@
+class EditSchedulingUseCase {}
+
+export { EditSchedulingUseCase };

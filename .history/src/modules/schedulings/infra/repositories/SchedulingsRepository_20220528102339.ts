@@ -91,23 +91,20 @@ class SchedulingsRepository implements ISchedulingsRepository {
   }
 
   async editScheduling({
-    id,
     type,
     description,
     price,
     available_status,
   }: Scheduling): Promise<void> {
-    await this.repository
+    this.repository
       .createQueryBuilder()
       .update(Scheduling)
       .set({
         type: `${type}`,
         description: `${description}`,
         price,
-        available_status,
-      })
-      .where("id = :id", { id })
-      .execute();
+        available_status: `${available_status}`,
+      });
   }
 }
 

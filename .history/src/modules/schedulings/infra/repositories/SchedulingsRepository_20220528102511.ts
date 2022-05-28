@@ -97,7 +97,7 @@ class SchedulingsRepository implements ISchedulingsRepository {
     price,
     available_status,
   }: Scheduling): Promise<void> {
-    await this.repository
+    this.repository
       .createQueryBuilder()
       .update(Scheduling)
       .set({

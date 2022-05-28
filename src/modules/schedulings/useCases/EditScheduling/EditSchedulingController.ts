@@ -1,0 +1,3 @@
+class EditSchedulingController {}
+
+export { EditSchedulingController };

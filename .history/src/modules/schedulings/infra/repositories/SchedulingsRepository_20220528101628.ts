@@ -90,24 +90,11 @@ class SchedulingsRepository implements ISchedulingsRepository {
       .getMany();
   }
 
-  async editScheduling({
-    id,
-    type,
-    description,
-    price,
-    available_status,
-  }: Scheduling): Promise<void> {
-    await this.repository
+  async editScheduling({ service }: Scheduling): Promise<void> {
+    this.repository
       .createQueryBuilder()
       .update(Scheduling)
-      .set({
-        type: `${type}`,
-        description: `${description}`,
-        price,
-        available_status,
-      })
-      .where("id = :id", { id })
-      .execute();
+      .set({ description: "ss" });
   }
 }
 
