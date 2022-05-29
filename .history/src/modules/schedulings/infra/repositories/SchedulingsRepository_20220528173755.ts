@@ -125,13 +125,7 @@ class SchedulingsRepository implements ISchedulingsRepository {
       .execute();
   }
 
-  async deleteScheduling(id: string): Promise<void> {
-    await this.repository
-      .createQueryBuilder()
-      .delete()
-      .from(Scheduling)
-      .where("id= :id", { id });
-  }
+  async deleteScheduling(id: string) {}
 }
 
 export { SchedulingsRepository };

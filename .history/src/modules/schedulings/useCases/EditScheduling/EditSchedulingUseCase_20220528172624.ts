@@ -21,6 +21,7 @@ class EditSchedulingUseCase {
       type,
       description,
       price,
+      available_status,
     });
   }
 }
