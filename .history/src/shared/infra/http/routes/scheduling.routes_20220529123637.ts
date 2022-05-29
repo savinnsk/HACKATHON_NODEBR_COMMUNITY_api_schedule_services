@@ -36,11 +36,7 @@ schedulingsRoutes.put(
   disableSchedulingController.handle
 ); // need auth
 
-schedulingsRoutes.delete(
-  "/delete/:id",
-  ensureServiceProviderAuthenticated,
-  deleteSchedulingController.handle
-);
+schedulingsRoutes.delete("/delete/:id", deleteSchedulingController.handle);
 
 schedulingsRoutes.get("/", listSchedulingsController.handle);
 

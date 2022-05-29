@@ -7,8 +7,6 @@ class DisableSchedulingController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
 
-    const { service_provider } = request;
-
     const disableScheduling = container.resolve(DisableSchedulingUseCase);
 
     await disableScheduling.execute(id);
