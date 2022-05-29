@@ -1,0 +1,3 @@
+class DeleteSchedulingUseCase {}
+
+export { DeleteSchedulingUseCase };

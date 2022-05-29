@@ -59,7 +59,7 @@
 
 **RF**
 
-* o prestador de serviço deve poder Desabilitar seus serviços
+* o prestador de serviço deve poder Desabilitar seus serviços [ok]
 
 **RN**
 

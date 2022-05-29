@@ -130,8 +130,7 @@ class SchedulingsRepository implements ISchedulingsRepository {
       .createQueryBuilder()
       .delete()
       .from(Scheduling)
-      .where("id= :id", { id })
-      .execute();
+      .where("id= :id", { id });
   }
 }
 

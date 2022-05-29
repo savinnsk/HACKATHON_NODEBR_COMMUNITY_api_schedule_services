@@ -1,3 +1,0 @@
-class EditSchedulingController {}
-
-export { EditSchedulingController };

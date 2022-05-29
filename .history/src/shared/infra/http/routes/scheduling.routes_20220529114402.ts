@@ -1,7 +1,6 @@
 import { Router } from "express";
 
 import { CreateSchedulingController } from "@modules/schedulings/useCases/CreateScheduling/CreateSchedulingController";
-import { DeleteSchedulingController } from "@modules/schedulings/useCases/DeleteScheduling/DeleteSchedulingController";
 import { DisableSchedulingController } from "@modules/schedulings/useCases/DisablingScheduling/DisableSchedulingController";
 import { EditSchedulingController } from "@modules/schedulings/useCases/EditScheduling/EditSchedulingController";
 import { ListSchedulingsController } from "@modules/schedulings/useCases/ListSchedulings/ListSchedulingsController";
@@ -16,7 +15,6 @@ const listSchedulingsController = new ListSchedulingsController();
 const searchSchedulingController = new SearchSchedulingController();
 const editSchedulingController = new EditSchedulingController();
 const disableSchedulingController = new DisableSchedulingController();
-const deleteSchedulingController = new DeleteSchedulingController();
 
 schedulingsRoutes.post(
   "/create",
@@ -31,8 +29,6 @@ schedulingsRoutes.put(
 );
 
 schedulingsRoutes.put("/disable/:id", disableSchedulingController.handle); // need auth
-
-schedulingsRoutes.delete("/delete/:id", deleteSchedulingController.handle);
 
 schedulingsRoutes.get("/", listSchedulingsController.handle);
 

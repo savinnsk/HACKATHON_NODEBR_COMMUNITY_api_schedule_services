@@ -1,3 +1,0 @@
-class DisableSchedulingUseCase {}
-
-export { DisableSchedulingUseCase };

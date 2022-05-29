@@ -32,7 +32,7 @@ schedulingsRoutes.put(
 
 schedulingsRoutes.put("/disable/:id", disableSchedulingController.handle); // need auth
 
-schedulingsRoutes.delete("/delete/:id", deleteSchedulingController.handle);
+schedulingsRoutes.delete("/delete/:id");
 
 schedulingsRoutes.get("/", listSchedulingsController.handle);
 

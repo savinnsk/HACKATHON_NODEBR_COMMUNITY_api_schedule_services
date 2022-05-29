@@ -1,3 +1,0 @@
-class EditSchedulingUseCase {}
-
-export { EditSchedulingUseCase };
