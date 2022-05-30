@@ -40,7 +40,7 @@ class AuthenticateUserUseCase {
       throw new AppError("Email ou senha incorreta**");
     }
 
-    const token = sign({}, auth.service_provider_secret_token, {
+    const token = sign({}, auth.user_secret_token, {
       subject: user.id,
       expiresIn: "1d",
     });
