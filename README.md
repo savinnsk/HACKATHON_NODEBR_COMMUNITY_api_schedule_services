@@ -172,7 +172,8 @@ O serviço deve ser criado por um usuario prestador de serviço. [ok]
 
 **RN**
 
-* O usuario não pode criar seu cadastro com um email já em uso.
+* O usuario não pode fornecer informações invalidas. [implements in test]
+* O usuario não pode criar seu cadastro com um email já em uso. [ok]
 
 
 
