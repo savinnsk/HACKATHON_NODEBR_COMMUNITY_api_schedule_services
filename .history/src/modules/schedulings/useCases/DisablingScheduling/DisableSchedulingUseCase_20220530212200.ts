@@ -5,10 +5,10 @@ import { ServiceProvidersRepository } from "@modules/service_providers/infra/rep
 import { AppError } from "@shared/errors/AppError";
 
 @injectable()
-class DeleteSchedulingUseCase {
+class DisableSchedulingUseCase {
   constructor(
     @inject("SchedulingsRepository")
-    private schedulingRepository: SchedulingsRepository,
+    private schedulingsRepository: SchedulingsRepository,
     @inject("ServiceProvidersRepository")
     private serviceProvidersRepository: ServiceProvidersRepository
   ) {}
@@ -17,20 +17,14 @@ class DeleteSchedulingUseCase {
     const serviceProvider = await this.serviceProvidersRepository.findById(
       service_provider_id
     );
-
-    const scheduling = await this.schedulingRepository.findById(id);
-    console.log(scheduling);
+    const scheduling = await this.schedulingsRepository.findById(id);
 
     if (!scheduling) {
-      throw new AppError("The scheduling doesn't exists");
+      throw new AppError("The scheduling does't exists");
     }
 
-    if (scheduling.service_provider_id !== serviceProvider.id) {
-      throw new AppError("the service provider is not the owner");
-    }
-
-    await this.schedulingRepository.deleteScheduling(id);
+    await this.schedulingsRepository.disableScheduling(scheduling.id);
   }
 }
 
-export { DeleteSchedulingUseCase };
+export { DisableSchedulingUseCase };
