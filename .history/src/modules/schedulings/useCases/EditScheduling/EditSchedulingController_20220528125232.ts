@@ -5,23 +5,19 @@ import { EditSchedulingUseCase } from "./EditSchedulingUseCase";
 
 class EditSchedulingController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { type, description, price } = request.body;
+    const { type, description, available_status, price } = request.body;
 
     const { id } = request.params;
 
-    const { service_provider } = request;
-
     const editSchedulingUseCase = container.resolve(EditSchedulingUseCase);
 
-    const schedulingUpdated = await editSchedulingUseCase.execute(
-      {
-        id,
-        type,
-        description,
-        price,
-      },
-      service_provider.id
-    );
+    const schedulingUpdated = await editSchedulingUseCase.execute({
+      id,
+      type,
+      description,
+      available_status,
+      price,
+    });
 
     return response.status(201).send(schedulingUpdated);
   }

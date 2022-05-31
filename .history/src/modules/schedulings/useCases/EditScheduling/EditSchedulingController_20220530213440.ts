@@ -13,15 +13,12 @@ class EditSchedulingController {
 
     const editSchedulingUseCase = container.resolve(EditSchedulingUseCase);
 
-    const schedulingUpdated = await editSchedulingUseCase.execute(
-      {
-        id,
-        type,
-        description,
-        price,
-      },
-      service_provider.id
-    );
+    const schedulingUpdated = await editSchedulingUseCase.execute({
+      id,
+      type,
+      description,
+      price,
+    });
 
     return response.status(201).send(schedulingUpdated);
   }

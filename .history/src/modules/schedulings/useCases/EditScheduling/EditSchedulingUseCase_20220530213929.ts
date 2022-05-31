@@ -29,7 +29,6 @@ class EditSchedulingUseCase {
     }
 
     if (scheduling.service_provider_id !== serviceProvider.id) {
-      throw new AppError("the service provider is not the owner");
     }
     await this.schedulingRepository.editScheduling({
       id,

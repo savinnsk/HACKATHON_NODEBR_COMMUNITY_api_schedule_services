@@ -28,15 +28,13 @@ class EditSchedulingUseCase {
       throw new AppError("The scheduling doesn't exist");
     }
 
-    if (scheduling.service_provider_id !== serviceProvider.id) {
-      throw new AppError("the service provider is not the owner");
-    }
-    await this.schedulingRepository.editScheduling({
-      id,
-      type,
-      description,
-      price,
-    });
+    if (scheduling.id !== serviceProvider.id)
+      await this.schedulingRepository.editScheduling({
+        id,
+        type,
+        description,
+        price,
+      });
   }
 }
 
