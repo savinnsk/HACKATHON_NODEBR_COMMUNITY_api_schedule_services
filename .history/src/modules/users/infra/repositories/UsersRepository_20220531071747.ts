@@ -61,7 +61,7 @@ class UsersRepository implements IUsersRepository {
         email: `${email}`,
         password: `${password}`,
       })
-      .where("id =:id", { id })
+      .where("id =:id", {})
       .execute();
   }
 }

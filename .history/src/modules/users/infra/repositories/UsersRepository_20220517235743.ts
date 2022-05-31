@@ -1,7 +1,6 @@
 import { getRepository, Repository } from "typeorm";
 
 import { ICreateUserDTO } from "@modules/users/dto/ICreateUserDTO";
-import { IEditUserDTO } from "@modules/users/dto/IEditUserDTO";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 
 import { User } from "../entities/User";
@@ -41,28 +40,6 @@ class UsersRepository implements IUsersRepository {
     const user = await this.repository.findOne(id);
 
     return user;
-  }
-
-  async edit({
-    id,
-    name,
-    contact,
-    address,
-    email,
-    password,
-  }: IEditUserDTO): Promise<void> {
-    await this.repository
-      .createQueryBuilder()
-      .update(User)
-      .set({
-        name: `${name}`,
-        contact: `${contact}`,
-        address: `${address}`,
-        email: `${email}`,
-        password: `${password}`,
-      })
-      .where("id =:id", { id })
-      .execute();
   }
 }
 

@@ -44,7 +44,6 @@ class UsersRepository implements IUsersRepository {
   }
 
   async edit({
-    id,
     name,
     contact,
     address,
@@ -61,7 +60,7 @@ class UsersRepository implements IUsersRepository {
         email: `${email}`,
         password: `${password}`,
       })
-      .where("id =:id", { id })
+      .where("id =:id", {})
       .execute();
   }
 }

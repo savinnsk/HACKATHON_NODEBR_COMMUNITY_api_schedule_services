@@ -12,7 +12,6 @@ class EditUserUseCase {
   ) {}
 
   async execute({
-    id,
     name,
     contact,
     address,

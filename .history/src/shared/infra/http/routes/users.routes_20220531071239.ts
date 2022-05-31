@@ -8,7 +8,7 @@ import { ensureUserAuthenticated } from "../middlewares/ensureUserAuthenticated"
 
 const createUserController = new CreateUserController();
 const authenticateUserController = new AuthenticateUserController();
-const editUserController = new EditUserController();
+const sd = new EditUserController();
 
 const usersRoutes = Router();
 
@@ -16,10 +16,6 @@ usersRoutes.post("/register", createUserController.handle);
 
 usersRoutes.post("/session", authenticateUserController.handle);
 
-usersRoutes.put(
-  "/edit/:id",
-  ensureUserAuthenticated,
-  editUserController.handle
-);
+usersRoutes.put("/edit", ensureUserAuthenticated);
 
 export { usersRoutes };

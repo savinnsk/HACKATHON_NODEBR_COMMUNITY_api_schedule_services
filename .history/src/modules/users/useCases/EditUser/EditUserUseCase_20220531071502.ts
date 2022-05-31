@@ -1,7 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
 import { ICreateUserDTO } from "@modules/users/dto/ICreateUserDTO";
-import { IEditUserDTO } from "@modules/users/dto/IEditUserDTO";
 import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
 
 @injectable()
@@ -12,13 +11,12 @@ class EditUserUseCase {
   ) {}
 
   async execute({
-    id,
     name,
     contact,
     address,
     email,
     password,
-  }: IEditUserDTO): Promise<void> {
+  }: ICreateUserDTO): Promise<void> {
     await this.usersRepository.edit({
       id,
       name,

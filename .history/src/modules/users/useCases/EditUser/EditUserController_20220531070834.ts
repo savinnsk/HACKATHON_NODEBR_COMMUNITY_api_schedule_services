@@ -7,11 +7,11 @@ class EditUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, contact, address, email, password } = request.body;
 
-    const { id } = request.params;
+    console.log(request);
 
     const editUserCase = container.resolve(EditUserUseCase);
 
-    editUserCase.execute({ id, name, contact, address, email, password });
+    editUserCase.execute({ name, contact, address, email, password });
     return response.status(200).send();
   }
 }
