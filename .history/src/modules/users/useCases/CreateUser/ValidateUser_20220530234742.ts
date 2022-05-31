@@ -16,7 +16,6 @@ export class ValidateUser {
    * @returns {boolean}
    */
   exec(): boolean {
-    // eslint-disable-next-line no-useless-catch
     try {
       return this.isEmail(this.user.email) && this.isName(this.user.name);
     } catch (error) {
@@ -31,12 +30,9 @@ export class ValidateUser {
    * example: VALID (Pedro Henrique) NO VALID ( Pedrooohenrique )
    */
   isName(name: string): boolean {
-    // eslint-disable-next-line no-useless-catch
     try {
-      // eslint-disable-next-line prefer-regex-literals
       if (name.length >= 10 && new RegExp(/^[A-z]+\s{1}[A-z]+\D+/).test(name))
         return true;
-      // eslint-disable-next-line no-throw-literal
       throw "Error in validate user name!";
     } catch (e) {
       throw e;
@@ -50,10 +46,8 @@ export class ValidateUser {
    * example: VALID (email@teste.com) NO VALID ( email.teste.com )
    */
   isEmail(email: string): boolean {
-    // eslint-disable-next-line prefer-regex-literals
     if (email.length >= 10 && new RegExp(/^[\S]+@[\S]+\.{1}[A-z]+/).test(email))
       return true;
-    // eslint-disable-next-line no-throw-literal
     throw "Error in validate user email!";
   }
 }

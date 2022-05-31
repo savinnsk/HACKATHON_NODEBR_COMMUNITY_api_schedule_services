@@ -1,0 +1,3 @@
+class EditUserController {}
+
+export { EditUserController };
