@@ -32,7 +32,7 @@ class SchedulingsRepository implements ISchedulingsRepository {
     return scheduling;
   }
 
-  async findById(id: string): Promise<Scheduling> {
+  findById(id: string): Promise<Scheduling> {
     const scheduling = await this.repository.findOne(id);
 
     return scheduling;

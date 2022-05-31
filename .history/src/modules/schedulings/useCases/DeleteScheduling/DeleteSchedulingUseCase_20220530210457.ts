@@ -14,16 +14,11 @@ class DeleteSchedulingUseCase {
   ) {}
 
   async execute(id: string, service_provider_id: string): Promise<void> {
+    console.log(service_provider_id);
     const serviceProvider = await this.serviceProviderRepository.findById(
       service_provider_id
     );
-
     const scheduling = await this.schedulingRepository.findById(id);
-    console.log(scheduling);
-
-    if (!scheduling) {
-      throw new AppError("The scheduling doesn't exists");
-    }
 
     if (scheduling.service_provider_id !== serviceProvider.id) {
       throw new AppError("the service provider is not the owner");

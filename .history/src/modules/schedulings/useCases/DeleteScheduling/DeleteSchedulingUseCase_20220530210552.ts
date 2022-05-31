@@ -19,11 +19,6 @@ class DeleteSchedulingUseCase {
     );
 
     const scheduling = await this.schedulingRepository.findById(id);
-    console.log(scheduling);
-
-    if (!scheduling) {
-      throw new AppError("The scheduling doesn't exists");
-    }
 
     if (scheduling.service_provider_id !== serviceProvider.id) {
       throw new AppError("the service provider is not the owner");

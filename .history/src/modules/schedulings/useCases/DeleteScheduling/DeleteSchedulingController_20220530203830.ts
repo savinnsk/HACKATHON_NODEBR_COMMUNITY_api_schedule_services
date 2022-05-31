@@ -11,7 +11,7 @@ class DeleteSchedulingController {
 
     const deleteSchedulingUseCase = container.resolve(DeleteSchedulingUseCase);
 
-    await deleteSchedulingUseCase.execute(id, service_provider.id);
+    await deleteSchedulingUseCase.execute(id);
 
     return response.status(200).send();
   }

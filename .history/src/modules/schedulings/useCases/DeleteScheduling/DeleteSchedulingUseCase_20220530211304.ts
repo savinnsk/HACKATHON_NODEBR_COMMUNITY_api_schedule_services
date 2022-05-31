@@ -22,7 +22,6 @@ class DeleteSchedulingUseCase {
     console.log(scheduling);
 
     if (!scheduling) {
-      throw new AppError("The scheduling doesn't exists");
     }
 
     if (scheduling.service_provider_id !== serviceProvider.id) {

@@ -8,6 +8,7 @@ class DeleteSchedulingController {
     const { id } = request.params;
 
     const { service_provider } = request;
+    console.log(service_provider.id);
 
     const deleteSchedulingUseCase = container.resolve(DeleteSchedulingUseCase);
 
