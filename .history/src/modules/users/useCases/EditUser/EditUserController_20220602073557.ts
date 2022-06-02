@@ -10,10 +10,10 @@ class EditUserController {
 
     const { id } = request.params;
 
-    const authHeader = request.headers.authorization;
-    const [, token] = authHeader.split(" ");
+    const auth = request.headers.authorization;
 
     // const decoded = verify();
+    console.log(auth);
 
     const editUserCase = container.resolve(EditUserUseCase);
 

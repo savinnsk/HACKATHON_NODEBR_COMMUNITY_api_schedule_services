@@ -4,6 +4,10 @@ import { container } from "tsyringe";
 
 import { EditUserUseCase } from "./EditUserUseCase";
 
+interface IPayload {
+  sub: string;
+}
+
 class EditUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, contact, address, email, password } = request.body;
@@ -13,8 +17,13 @@ class EditUserController {
     const authHeader = request.headers.authorization;
     const [, token] = authHeader.split(" ");
 
-    // const decoded = verify();
-
+   try {
+    const { sub: user_id } = verify(
+      token,
+      // secret key
+      auth.user_secret_token
+    ) as IPayload;
+    )}
     const editUserCase = container.resolve(EditUserUseCase);
 
     await editUserCase.execute({

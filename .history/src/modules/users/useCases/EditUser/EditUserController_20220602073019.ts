@@ -8,12 +8,8 @@ class EditUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, contact, address, email, password } = request.body;
 
+    const decoded = verify();
     const { id } = request.params;
-
-    const authHeader = request.headers.authorization;
-    const [, token] = authHeader.split(" ");
-
-    // const decoded = verify();
 
     const editUserCase = container.resolve(EditUserUseCase);
 

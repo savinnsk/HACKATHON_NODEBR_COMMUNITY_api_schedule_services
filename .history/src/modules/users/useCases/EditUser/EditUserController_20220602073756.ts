@@ -13,7 +13,12 @@ class EditUserController {
     const authHeader = request.headers.authorization;
     const [, token] = authHeader.split(" ");
 
-    // const decoded = verify();
+   try {
+    const { sub: user_id } = verify(
+      token,
+      // secret key
+      auth.user_secret_token
+    ) as IPayload;
 
     const editUserCase = container.resolve(EditUserUseCase);
 

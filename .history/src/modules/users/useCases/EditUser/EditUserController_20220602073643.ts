@@ -14,6 +14,7 @@ class EditUserController {
     const [, token] = authHeader.split(" ");
 
     // const decoded = verify();
+    console.log(auth);
 
     const editUserCase = container.resolve(EditUserUseCase);
 
