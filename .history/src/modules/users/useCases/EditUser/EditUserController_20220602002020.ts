@@ -9,6 +9,7 @@ class EditUserController {
 
     const { id } = request.params;
 
+    const usersRepository = container.resolve(EditUserUseCase);
     const editUserCase = container.resolve(EditUserUseCase);
 
     await editUserCase.execute({

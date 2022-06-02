@@ -11,7 +11,7 @@ class EditUserController {
 
     const editUserCase = container.resolve(EditUserUseCase);
 
-    await editUserCase.execute({
+    const userUpdated = editUserCase.execute({
       id,
       name,
       contact,
@@ -19,7 +19,6 @@ class EditUserController {
       email,
       password,
     });
-
     return response.status(200).send();
   }
 }

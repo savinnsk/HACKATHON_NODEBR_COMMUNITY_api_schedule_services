@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
+import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
+
 import { EditUserUseCase } from "./EditUserUseCase";
 
 class EditUserController {
@@ -10,6 +12,7 @@ class EditUserController {
     const { id } = request.params;
 
     const editUserCase = container.resolve(EditUserUseCase);
+    const editUserCase = container.resolve(UsersRepository);
 
     await editUserCase.execute({
       id,
@@ -20,7 +23,7 @@ class EditUserController {
       password,
     });
 
-    return response.status(200).send();
+    return response.status(200).send("User was updated with success");
   }
 }
 

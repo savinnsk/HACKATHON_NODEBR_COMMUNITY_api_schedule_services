@@ -20,7 +20,7 @@ class EditUserController {
       password,
     });
 
-    return response.status(200).send();
+    return response.status(200).send("User was updated with success");
   }
 }
 

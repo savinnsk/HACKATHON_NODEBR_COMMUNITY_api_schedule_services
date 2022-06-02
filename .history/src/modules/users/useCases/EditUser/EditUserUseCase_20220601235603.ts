@@ -20,6 +20,12 @@ class EditUserUseCase {
     email,
     password,
   }: IEditUserDTO): Promise<void> {
+    const user = this.usersRepository.findById(id);
+
+    if (!user) {
+      throw new AppError("User doesn't exist");
+    }
+
     await this.usersRepository.edit({
       id,
       name,

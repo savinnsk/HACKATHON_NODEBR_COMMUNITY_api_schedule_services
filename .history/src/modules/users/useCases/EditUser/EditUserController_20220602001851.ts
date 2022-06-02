@@ -8,7 +8,7 @@ class EditUserController {
     const { name, contact, address, email, password } = request.body;
 
     const { id } = request.params;
-
+    console.log(request.headers);
     const editUserCase = container.resolve(EditUserUseCase);
 
     await editUserCase.execute({

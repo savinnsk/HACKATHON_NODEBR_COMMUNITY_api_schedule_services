@@ -20,6 +20,8 @@ class EditUserUseCase {
     email,
     password,
   }: IEditUserDTO): Promise<void> {
+    const user = await this.usersRepository.findById(id);
+
     await this.usersRepository.edit({
       id,
       name,

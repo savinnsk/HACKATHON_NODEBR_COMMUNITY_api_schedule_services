@@ -3,7 +3,6 @@ import { inject, injectable } from "tsyringe";
 
 import { IEditUserDTO } from "@modules/users/dto/IEditUserDTO";
 import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
-import { AppError } from "@shared/errors/AppError";
 
 @injectable()
 class EditUserUseCase {

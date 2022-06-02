@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
+import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
+
 import { EditUserUseCase } from "./EditUserUseCase";
 
 class EditUserController {
@@ -9,6 +11,7 @@ class EditUserController {
 
     const { id } = request.params;
 
+    const usersRepository = container.resolve(UsersRepository);
     const editUserCase = container.resolve(EditUserUseCase);
 
     await editUserCase.execute({
