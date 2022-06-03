@@ -13,7 +13,7 @@
 
 **RN**
 
-* Não deve ser possivél cadastrar um já cadastrado. [ok]
+* Não deve ser possivél cadastrar um já cadastrado..  [ok]
 
 **RNF**
 
