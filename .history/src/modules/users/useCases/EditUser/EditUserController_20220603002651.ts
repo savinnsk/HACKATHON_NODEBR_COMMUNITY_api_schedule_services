@@ -29,7 +29,7 @@ class EditUserController {
     const user = await usersRepository.findById(user_id);
 
     if (user.id !== id) {
-      throw new AppError("Token error");
+      throw new AppError();
     }
     await editUserCase.execute({
       id,
