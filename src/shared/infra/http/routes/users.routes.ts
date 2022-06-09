@@ -16,10 +16,6 @@ usersRoutes.post("/register", createUserController.handle);
 
 usersRoutes.post("/session", authenticateUserController.handle);
 
-usersRoutes.put(
-  "/edit/:id",
-  ensureUserAuthenticated,
-  editUserController.handle
-);
+usersRoutes.put("/", ensureUserAuthenticated, editUserController.handle);
 
 export { usersRoutes };
