@@ -120,6 +120,7 @@ O serviço deve ser criado por um usuario prestador de serviço. [ok]
 **RN**
 
 * O usuario não pode alterar seu cadastro com um email já em uso. [ok]
+* O usuario não pode alterar outros perfis. [ok]
 * O usuario precisa existir. [ok]
 
 
