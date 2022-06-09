@@ -1,3 +1,0 @@
-class EditUserUseCase {}
-
-export { EditUserUseCase };

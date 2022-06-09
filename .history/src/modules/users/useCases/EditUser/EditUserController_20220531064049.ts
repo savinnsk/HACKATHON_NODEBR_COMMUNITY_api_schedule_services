@@ -1,3 +1,0 @@
-class EditUserController {}
-
-export { EditUserController };

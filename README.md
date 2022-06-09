@@ -115,17 +115,18 @@ O serviço deve ser criado por um usuario prestador de serviço. [ok]
 
 **RF**
 
-* O usuario deve poder editar seu  perfil.
+* O usuario deve poder editar seu  perfil. [ok]
 
 **RN**
 
 * O usuario não pode alterar seu cadastro com um email já em uso.
-* O usuario precisa existir.
+* O usuario não pode alterar outros perfils [ok]
+* O usuario precisa existir.[ok]
 
 
 **RNF**
 
-* Deve ser usado token jwt para autenticar a rota.
+* Deve ser usado token jwt para autenticar a rota.[ok]
 
 
 ## agendar/solicitar serviço
