@@ -32,7 +32,12 @@ class UsersRepository implements IUsersRepository {
   }
 
   async findByEmail(email: string): Promise<User> {
-    const user = await this.repository.findOne({ email });
+    const user = await this.repository
+      .createQueryBuilder("users")
+      .where("LOWER(users.email) like :email", {
+        email: `${email.toLocaleLowerCase()}`,
+      })
+      .getOne();
 
     return user;
   }
