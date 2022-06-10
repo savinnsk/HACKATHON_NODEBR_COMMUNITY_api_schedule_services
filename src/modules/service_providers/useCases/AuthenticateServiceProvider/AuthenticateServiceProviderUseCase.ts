@@ -37,7 +37,6 @@ class AuthenticateServiceProviderUseCase {
     }
 
     const passwordMatch = await compare(password, serviceProvider.password);
-    console.log("ok1");
 
     if (!passwordMatch) {
       throw new AppError("Email ou senha incorreta**");
