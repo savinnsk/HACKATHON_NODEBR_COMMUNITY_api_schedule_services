@@ -6,6 +6,7 @@ import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppo
 import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
 import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { AppError } from "@shared/errors/AppError";
 
 @injectable()
 class RequestSchedulingUseCase {
@@ -21,19 +22,32 @@ class RequestSchedulingUseCase {
   ) {}
 
   async execute(appointment_id: string, user_id: string): Promise<Appointment> {
-    //verifico se o agendamento existe
+    // verifico se o agendamento existe
+    const appointment = await this.appointmentsRepository.findById(
+      appointment_id
+    );
 
-    //verificar se o agendamento nao esta ocupado
+    if (!appointment) throw new AppError("Appointment not exists");
 
-    //validar se o horário do agendamento ainda é valido -> pelo menos 1 horas antes
+    if (!appointment.available)
+      throw new AppError("Appointment is not available");
 
-    //fazer uma consulta para retornar o id do servico
+    // validar se o horário do agendamento ainda é valido -> pelo menos 1 horas antes
 
-    //pesquisa pelo id do servico o prestador de servico
+    const serviceProvider = await this.serviceProvidersRepository.findById(
+      appointment.scheduling.service_provider_id
+    );
 
-    //o email do prestador de servico nao pode ser igual ao do usuario atual
+    const user = await this.usersRepository.findById(user_id);
 
-    //atualizar o agendamento
+    if (serviceProvider.email === user.email)
+      throw new AppError("Request not allowed");
+
+    console.log(appointment);
+
+    // atualizar o agendamento com o id do usuario
+
+    return appointment;
   }
 }
 

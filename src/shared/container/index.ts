@@ -1,5 +1,7 @@
 import { container } from "tsyringe";
 
+import "@shared/container/providers";
+
 import { AppointmentsRepository } from "@modules/schedulings/infra/repositories/AppointmentsRepository";
 import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/SchedulingsRepository";
 import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppointmentsRepository";

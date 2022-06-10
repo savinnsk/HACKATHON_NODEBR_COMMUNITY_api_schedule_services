@@ -32,8 +32,18 @@ class AppointmentsRepository implements IAppointmentsRepository {
     }
   }
 
-  findById(id: string): Promise<Appointment> {
-    throw new Error("Method not implemented.");
+  async findById(id: string): Promise<Appointment> {
+    try {
+      return await this.repository
+        .createQueryBuilder("appointment")
+        .innerJoinAndSelect("appointment.scheduling", "scheduling")
+        .where("appointment.id = :id", {
+          id,
+        })
+        .getOne();
+    } catch (err) {
+      throw err;
+    }
   }
 }
 

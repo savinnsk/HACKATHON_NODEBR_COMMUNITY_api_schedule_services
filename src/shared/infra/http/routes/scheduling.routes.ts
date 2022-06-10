@@ -5,9 +5,11 @@ import { DeleteSchedulingController } from "@modules/schedulings/useCases/Delete
 import { DisableSchedulingController } from "@modules/schedulings/useCases/DisablingScheduling/DisableSchedulingController";
 import { EditSchedulingController } from "@modules/schedulings/useCases/EditScheduling/EditSchedulingController";
 import { ListSchedulingsController } from "@modules/schedulings/useCases/ListSchedulings/ListSchedulingsController";
+import { RequestSchedulingController } from "@modules/schedulings/useCases/RequestScheduling/RequestSchedulingController";
 import { SearchSchedulingController } from "@modules/schedulings/useCases/SearchScheduling/SearchSchedulingController";
 
 import { ensureServiceProviderAuthenticated } from "../middlewares/ensureServiceProviderAuthenticated";
+import { ensureUserAuthenticated } from "../middlewares/ensureUserAuthenticated";
 
 const schedulingsRoutes = Router();
 
@@ -17,6 +19,7 @@ const searchSchedulingController = new SearchSchedulingController();
 const editSchedulingController = new EditSchedulingController();
 const disableSchedulingController = new DisableSchedulingController();
 const deleteSchedulingController = new DeleteSchedulingController();
+const requestSchedulingController = new RequestSchedulingController();
 
 schedulingsRoutes.post(
   "/create",
@@ -45,5 +48,11 @@ schedulingsRoutes.delete(
 schedulingsRoutes.get("/", listSchedulingsController.handle);
 
 schedulingsRoutes.get("/search", searchSchedulingController.handle);
+
+schedulingsRoutes.patch(
+  "/request/:id",
+  ensureUserAuthenticated,
+  requestSchedulingController.handle
+);
 
 export { schedulingsRoutes };
