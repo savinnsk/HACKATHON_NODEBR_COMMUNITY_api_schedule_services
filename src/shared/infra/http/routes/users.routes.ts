@@ -16,6 +16,8 @@ usersRoutes.post("/register", createUserController.handle);
 
 usersRoutes.post("/session", authenticateUserController.handle);
 
+usersRoutes.put("/appoiment", ensureUserAuthenticated);
+
 usersRoutes.put("/", ensureUserAuthenticated, editUserController.handle);
 
 export { usersRoutes };

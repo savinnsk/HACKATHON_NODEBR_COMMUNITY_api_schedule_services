@@ -4,7 +4,7 @@ import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositori
 import { IUsersRepository } from "@modules/users/InterfaceRepositories/IUsersRepository";
 
 @injectable()
-class MarkSchedulingUseCase {
+class MarkAppoimentUseCase {
   constructor(
     @inject("UsersRepository")
     private usersRepository: IUsersRepository,
@@ -15,4 +15,4 @@ class MarkSchedulingUseCase {
   async execute(user_id: string, scheduling_id: string) {}
 }
 
-export { MarkSchedulingUseCase };
+export { MarkAppoimentUseCase };
