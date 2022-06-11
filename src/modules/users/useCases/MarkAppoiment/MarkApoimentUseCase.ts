@@ -12,7 +12,7 @@ class MarkAppoimentUseCase {
     private schedulingRepository: ISchedulingsRepository
   ) {}
 
-  async execute(user_id: string, scheduling_id: string) {}
+  async execute(user_id: string, scheduling_id: string): Promise<void> {}
 }
 
 export { MarkAppoimentUseCase };
