@@ -33,6 +33,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
   }
 
   async findById(id: string): Promise<Appointment> {
+    // eslint-disable-next-line no-useless-catch
     try {
       return await this.repository
         .createQueryBuilder("appointment")
