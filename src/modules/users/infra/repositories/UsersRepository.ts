@@ -2,7 +2,7 @@ import { getRepository, Repository } from "typeorm";
 
 import { ICreateUserDTO } from "@modules/users/dto/ICreateUserDTO";
 import { IEditUserDTO } from "@modules/users/dto/IEditUserDTO";
-import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { IUsersRepository } from "@modules/users/InterfaceRepositories/IUsersRepository";
 
 import { User } from "../entities/User";
 
