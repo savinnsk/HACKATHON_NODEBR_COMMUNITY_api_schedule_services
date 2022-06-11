@@ -11,10 +11,9 @@ class EnableServiceProviderUseCase {
   ) {}
 
   async execute(id: string): Promise<void> {
-    const user = await this.usersRepository.findById(id);
+    const user = await this.usersRepository.findServiceProviderById(id);
 
-    if (user.service_provider)
-      throw new AppError("User is already a service provider");
+    if (user) throw new AppError("User is already a service provider");
 
     await this.usersRepository.enableServiceProvider(id);
   }

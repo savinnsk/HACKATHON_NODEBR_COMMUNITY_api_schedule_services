@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 
-import { ServiceProvidersRepository } from "@modules/service_providers/infra/repositories/ServiceProvidersRepository";
 import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
@@ -36,14 +35,11 @@ export async function ensureServiceProviderAuthenticated(
     ) as IPayload;
 
     const usersRepository = new UsersRepository();
-    const user = await usersRepository.findById(user_id);
+    const user = await usersRepository.findServiceProviderById(user_id);
 
     if (!user) {
       throw new Error("Usuário não existe");
     }
-
-    if (!user.service_provider)
-      throw new Error("Usuário não é prestador de serviço");
 
     request.service_provider = {
       id: user_id,

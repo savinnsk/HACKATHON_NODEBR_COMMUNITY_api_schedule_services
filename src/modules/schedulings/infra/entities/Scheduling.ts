@@ -8,7 +8,6 @@ import {
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-import { ServiceProvider } from "@modules/service_providers/infra/entities/ServiceProvider";
 import { User } from "@modules/users/infra/entities/User";
 
 import { Appointment } from "./Appointment";
@@ -32,7 +31,7 @@ class Scheduling {
 
   @JoinColumn({ name: "service_provider_id" })
   @ManyToOne(() => User, (user) => user.schedulings)
-  serviceProvider: ServiceProvider;
+  serviceProvider: User;
 
   @Column()
   available_status: boolean;

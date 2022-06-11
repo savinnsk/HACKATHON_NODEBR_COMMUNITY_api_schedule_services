@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { ListAllServicesOfProviderController } from "@modules/service_providers/useCases/ListAllServicesOfProvider/ListAllServicesOfProviderController";
+import { ListAllServiceProviderServicesController } from "@modules/schedulings/useCases/ListAllServiceProviderServices/ListAllServiceProviderServicesController";
 import { AuthenticateServiceProviderController } from "@modules/users/useCases/AuthenticateServiceProvider/AuthenticateServiceProviderController";
 
 import { ensureServiceProviderAuthenticated } from "../middlewares/ensureServiceProviderAuthenticated";
@@ -8,8 +8,8 @@ import { ensureServiceProviderAuthenticated } from "../middlewares/ensureService
 const authenticateServiceProviderController =
   new AuthenticateServiceProviderController();
 
-const listAllServicesOfProviderController =
-  new ListAllServicesOfProviderController();
+const listAllServiceProviderServicesController =
+  new ListAllServiceProviderServicesController();
 
 const serviceProvidersRoutes = Router();
 
@@ -21,7 +21,7 @@ serviceProvidersRoutes.post(
 serviceProvidersRoutes.get(
   "/services",
   ensureServiceProviderAuthenticated,
-  listAllServicesOfProviderController.handle
+  listAllServiceProviderServicesController.handle
 );
 
 export { serviceProvidersRoutes };

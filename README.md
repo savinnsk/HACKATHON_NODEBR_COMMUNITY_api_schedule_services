@@ -133,14 +133,14 @@ O serviço deve ser criado por um usuario prestador de serviço. [ok]
 
 **RF**
 
-* O usuario deve ser poder agendar/solicitar um serviço
+* O usuario deve ser poder agendar/solicitar um serviço [ok]
 
 
 **RN**
 
 * O usuario deve existir. [ok]
-* O serviço deve existir.
-* O serviço deve pertencer ao provedor de serviço.
+* O serviço deve existir. [ok]
+* O serviço deve pertencer ao provedor de serviço. [ok]
 
 
 **RNF**

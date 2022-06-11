@@ -45,6 +45,27 @@ class AppointmentsRepository implements IAppointmentsRepository {
       throw err;
     }
   }
+
+  async updateUserOnAppointment(
+    id: string,
+    user_id: string
+  ): Promise<Appointment> {
+    await this.repository
+      .createQueryBuilder()
+      .update(Appointment)
+      .set({
+        user_id,
+        available: false,
+      })
+      .where("id = :id", {
+        id,
+      })
+      .execute();
+
+    const appointment = await this.repository.findOne(id);
+
+    return appointment;
+  }
 }
 
 export { AppointmentsRepository };

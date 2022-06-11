@@ -13,6 +13,17 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
+  async findServiceProviderById(id: string): Promise<User> {
+    const user = await this.repository.find({
+      where: {
+        id,
+        service_provider: true,
+      },
+    });
+
+    return user.length ? user[0] : null;
+  }
+
   async enableServiceProvider(id: string): Promise<void> {
     await this.repository
       .createQueryBuilder()
