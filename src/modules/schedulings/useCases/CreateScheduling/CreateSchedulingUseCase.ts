@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppointmentsRepository";
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
+import { IAppointmentsRepository } from "@modules/schedulings/Interfacerepositories/IAppointmentsRepository";
+import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
 
 interface IRequest {
   type: string;

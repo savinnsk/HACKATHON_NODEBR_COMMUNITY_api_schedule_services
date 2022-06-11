@@ -3,7 +3,7 @@ import { getRepository, Repository } from "typeorm";
 import { ICreateSchedulingDTO } from "@modules/schedulings/dto/ICreateSchedulingDTO";
 import { IEditSchedulingDTO } from "@modules/schedulings/dto/IEditSchedulingDTO";
 import { ISearchDTO } from "@modules/schedulings/dto/ISearchDTO";
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
+import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
 
 import { Scheduling } from "../entities/Scheduling";
 
