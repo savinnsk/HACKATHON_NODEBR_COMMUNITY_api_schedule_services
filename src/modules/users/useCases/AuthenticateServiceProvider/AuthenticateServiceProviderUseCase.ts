@@ -2,7 +2,7 @@ import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
-import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
+import { IUsersRepository } from "@modules/users/InterfaceRepositories/IUsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
 import auth from "../../../../config/auth.js";
@@ -23,21 +23,21 @@ interface IResponse {
 @injectable()
 class AuthenticateServiceProviderUseCase {
   constructor(
-    @inject("ServiceProvidersRepository")
-    private serviceProvidersRepository: IServiceProvidersRepository
+    @inject("UsersRepository")
+    private usersRepository: IUsersRepository
   ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
-    const serviceProvider = await this.serviceProvidersRepository.findByEmail(
-      email
-    );
+    const serviceProvider = await this.usersRepository.findByEmail(email);
 
     if (!serviceProvider) {
       throw new AppError("Email ou senha incorreta");
     }
 
+    if (!serviceProvider.service_provider)
+      throw new AppError("Usuário não é prestador de serviço");
+
     const passwordMatch = await compare(password, serviceProvider.password);
-    console.log("ok1");
 
     if (!passwordMatch) {
       throw new AppError("Email ou senha incorreta**");
