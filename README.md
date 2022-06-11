@@ -133,19 +133,19 @@ O serviço deve ser criado por um usuario prestador de serviço. [ok]
 
 **RF**
 
-* O usuario deve ser poder agendar/solicitar um serviço
+* O usuario deve ser poder agendar/solicitar um serviço [ok]
 
 
 **RN**
 
-* O usario deve existir.
-* O serviço deve existir.
-* O serviço deve pertencer ao provedor de serviço.
+* O usuario deve existir. [ok]
+* O serviço deve existir. [ok]
+* O serviço deve pertencer ao provedor de serviço. [ok]
 
 
 **RNF**
 
-* Deve ser usado token jwt para autenticar a rota.
+* Deve ser usado token jwt para autenticar a rota. [ok]
 
 
 ## listar agendamentos/solicitaçẽos

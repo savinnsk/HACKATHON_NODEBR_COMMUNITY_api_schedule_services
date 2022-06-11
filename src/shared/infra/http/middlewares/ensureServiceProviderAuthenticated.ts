@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 
-import { ServiceProvidersRepository } from "@modules/service_providers/infra/repositories/ServiceProvidersRepository";
+import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
 import auth from "../../../../config/auth.js";
@@ -34,8 +34,8 @@ export async function ensureServiceProviderAuthenticated(
       auth.service_provider_secret_token
     ) as IPayload;
 
-    const serviceProvidersRepository = new ServiceProvidersRepository();
-    const user = await serviceProvidersRepository.findById(user_id);
+    const usersRepository = new UsersRepository();
+    const user = await usersRepository.findServiceProviderById(user_id);
 
     if (!user) {
       throw new Error("Usuário não existe");
