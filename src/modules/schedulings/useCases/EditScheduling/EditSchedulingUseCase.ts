@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
 import { IEditSchedulingDTO } from "@modules/schedulings/dto/IEditSchedulingDTO";
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
+import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
 import { AppError } from "@shared/errors/AppError";
 
 @injectable()

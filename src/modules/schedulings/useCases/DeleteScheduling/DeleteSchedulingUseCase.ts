@@ -1,14 +1,13 @@
 import { inject, injectable } from "tsyringe";
 
-import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/SchedulingsRepository";
+import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
 import { AppError } from "@shared/errors/AppError";
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
 
 @injectable()
 class DeleteSchedulingUseCase {
   constructor(
     @inject("SchedulingsRepository")
-    private schedulingRepository: ISchedulingsRepository,
+    private schedulingRepository: ISchedulingsRepository
   ) {}
 
   async execute(id: string, service_provider_id: string): Promise<void> {

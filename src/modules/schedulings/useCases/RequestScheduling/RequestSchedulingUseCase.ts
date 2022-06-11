@@ -1,10 +1,8 @@
 import { inject, injectable } from "tsyringe";
 
 import { Appointment } from "@modules/schedulings/infra/entities/Appointment";
-import { Scheduling } from "@modules/schedulings/infra/entities/Scheduling";
-import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppointmentsRepository";
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
-import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { IAppointmentsRepository } from "@modules/schedulings/Interfacerepositories/IAppointmentsRepository";
+import { IUsersRepository } from "@modules/users/InterfaceRepositories/IUsersRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 

@@ -1,6 +1,6 @@
 import { injectable, inject } from "tsyringe";
 
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
+import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
 
 @injectable()
 class ListAllServiceProviderServicesUseCase {

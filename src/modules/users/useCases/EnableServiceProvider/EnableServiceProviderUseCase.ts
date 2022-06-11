@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
-import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { IUsersRepository } from "@modules/users/InterfaceRepositories/IUsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
 @injectable()
