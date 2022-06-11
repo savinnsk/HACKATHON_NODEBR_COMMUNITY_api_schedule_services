@@ -1,17 +1,18 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
+import { MarkAppoimentUseCase } from "./MarkApoimentUseCase";
+
 class MarkAppoimentController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { scheduling_id } = request.body;
+    const { appointment_id } = request.body;
 
-    const userId = request.headers.id;
+    const { id } = request.user;
+    const userId = id;
 
-    console.log(`test${userId}`, scheduling_id);
+    const markAppoimentUseCase = container.resolve(MarkAppoimentUseCase);
 
-    const markAppoimentUseCase = container.resolve(MarkAppoimentController);
-
-    markAppoimentUseCase.handle(userId, scheduling_id);
+    markAppoimentUseCase.execute(appointment_id, userId);
 
     return response.status(200).send();
   }
