@@ -3,7 +3,7 @@ import { container } from "tsyringe";
 
 import { ListAllServiceProviderServicesUseCase } from "./ListAllServiceProviderServicesUseCase";
 
-class ListAllServiceProviderServicesController {
+class ListServiceProviderAllServicesController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { id } = request.service_provider;
 
@@ -11,12 +11,10 @@ class ListAllServiceProviderServicesController {
       ListAllServiceProviderServicesUseCase
     );
 
-    const services = await listAllServiceProviderServicesUseCase.execute(
-      id
-    );
+    const services = await listAllServiceProviderServicesUseCase.execute(id);
 
     return response.send(services);
   }
 }
 
-export { ListAllServiceProviderServicesController };
+export { ListServiceProviderAllServicesController };
