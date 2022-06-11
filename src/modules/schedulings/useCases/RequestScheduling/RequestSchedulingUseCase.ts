@@ -6,6 +6,7 @@ import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppo
 import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
 import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
 @injectable()
@@ -18,7 +19,9 @@ class RequestSchedulingUseCase {
     @inject("ServiceProvidersRepository")
     private serviceProvidersRepository: IServiceProvidersRepository,
     @inject("UsersRepository")
-    private usersRepository: IUsersRepository
+    private usersRepository: IUsersRepository,
+    @inject("DayjsDateProvider")
+    private dayjsDateProvider: IDateProvider
   ) {}
 
   async execute(appointment_id: string, user_id: string): Promise<Appointment> {
@@ -33,6 +36,13 @@ class RequestSchedulingUseCase {
       throw new AppError("Appointment is not available");
 
     // validar se o horário do agendamento ainda é valido -> pelo menos 1 horas antes
+    if (
+      await this.dayjsDateProvider.compareIfBeforeNow(
+        appointment.appointment_time
+      )
+    ) {
+      throw new AppError("Appointment must to be on the future");
+    }
 
     const serviceProvider = await this.serviceProvidersRepository.findById(
       appointment.scheduling.service_provider_id

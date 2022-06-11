@@ -13,6 +13,17 @@ class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User);
   }
 
+  async enableServiceProvider(id: string): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update(User)
+      .set({
+        service_provider: true,
+      })
+      .where("id =:id", { id })
+      .execute();
+  }
+
   async create({
     name,
     contact,

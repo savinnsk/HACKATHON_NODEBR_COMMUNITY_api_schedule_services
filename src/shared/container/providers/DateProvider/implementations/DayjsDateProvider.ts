@@ -10,6 +10,10 @@ class DayjsDateProvider implements IDateProvider {
     return dayjs(date).utc().local().format();
   }
 
+  compareIfBeforeNow(date: Date): boolean {
+    return dayjs(date).isBefore(this.dateNow());
+  }
+
   dateNow(): Date {
     return dayjs().toDate();
   }
