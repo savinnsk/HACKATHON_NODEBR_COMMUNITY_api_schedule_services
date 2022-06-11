@@ -152,19 +152,16 @@ O serviço deve ser criado por um usuario prestador de serviço. [ok]
 
 **RF**
 
-* O usuario deve ser poder listar agendametos/solicitações dos serviços contratados.
+* O usuario deve ser poder listar agendametos/solicitações dos serviços contratados. [ok]
 
 
 **RN**
 
-* O usario deve existir.
-* O serviço deve existir.
-* O serviço deve pertencer ao provedor de serviço.
-
+* O usuário deve existir. [ok]
 
 **RNF**
 
-* Deve ser usado token jwt para autenticar a rota.
+* Deve ser usado token jwt para autenticar a rota. [ok]
 
 
 ## Avaliar o serviço

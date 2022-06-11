@@ -9,6 +9,7 @@ interface ISchedulingsRepository {
   listAll(): Promise<Scheduling[]>;
   searchByParameters({ description, type }: ISearchDTO): Promise<Scheduling[]>;
   findSchedulingsByServiceProvider(id: string): Promise<Scheduling[]>;
+  findSchedulingsByUser(id: string): Promise<Scheduling[]>;
   deleteScheduling(id: string): Promise<void>;
   disableScheduling(id: string): Promise<void>;
   editScheduling(data: IEditSchedulingDTO): Promise<void>;

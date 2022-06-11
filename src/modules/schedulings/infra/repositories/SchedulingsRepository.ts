@@ -14,6 +14,18 @@ class SchedulingsRepository implements ISchedulingsRepository {
     this.repository = getRepository(Scheduling);
   }
 
+  async findSchedulingsByUser(id: string): Promise<Scheduling[]> {
+    const schedulings = await this.repository
+      .createQueryBuilder("scheduling")
+      .innerJoinAndSelect("scheduling.appointments", "appointment")
+      .where("appointment.user_id = :id", {
+        id,
+      })
+      .getMany();
+
+    return schedulings;
+  }
+
   async findSchedulingsByServiceProvider(id: string): Promise<Scheduling[]> {
     const schedulings = await this.repository
       .createQueryBuilder("scheduling")

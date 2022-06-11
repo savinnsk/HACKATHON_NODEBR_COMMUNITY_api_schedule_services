@@ -4,8 +4,9 @@ import { CreateSchedulingController } from "@modules/schedulings/useCases/Create
 import { DeleteSchedulingController } from "@modules/schedulings/useCases/DeleteScheduling/DeleteSchedulingController";
 import { DisableSchedulingController } from "@modules/schedulings/useCases/DisablingScheduling/DisableSchedulingController";
 import { EditSchedulingController } from "@modules/schedulings/useCases/EditScheduling/EditSchedulingController";
-import { ListAllServiceProviderServicesController } from "@modules/schedulings/useCases/ListAllServiceProviderServices/ListAllServiceProviderServicesController";
 import { ListSchedulingsController } from "@modules/schedulings/useCases/ListSchedulings/ListSchedulingsController";
+import { ListServiceProviderAllServicesController } from "@modules/schedulings/useCases/ListServiceProviderAllServices/ListServiceProviderAllServicesController";
+import { ListUserAllServicesController } from "@modules/schedulings/useCases/ListUserAllServices/ListUserAllServicesController";
 import { RequestSchedulingController } from "@modules/schedulings/useCases/RequestScheduling/RequestSchedulingController";
 import { SearchSchedulingController } from "@modules/schedulings/useCases/SearchScheduling/SearchSchedulingController";
 
@@ -21,8 +22,9 @@ const editSchedulingController = new EditSchedulingController();
 const disableSchedulingController = new DisableSchedulingController();
 const deleteSchedulingController = new DeleteSchedulingController();
 const requestSchedulingController = new RequestSchedulingController();
-const listAllServiceProviderServicesController =
-  new ListAllServiceProviderServicesController();
+const listServiceProviderAllServicesController =
+  new ListServiceProviderAllServicesController();
+const listUserAllServicesController = new ListUserAllServicesController();
 
 schedulingsRoutes.post(
   "/create",
@@ -53,9 +55,15 @@ schedulingsRoutes.get("/", listSchedulingsController.handle);
 schedulingsRoutes.get("/search", searchSchedulingController.handle);
 
 schedulingsRoutes.get(
-  "/my_services",
+  "/service_provider/services",
   ensureServiceProviderAuthenticated,
-  listAllServiceProviderServicesController.handle
+  listServiceProviderAllServicesController.handle
+);
+
+schedulingsRoutes.get(
+  "/user/services",
+  ensureUserAuthenticated,
+  listUserAllServicesController.handle
 );
 
 schedulingsRoutes.patch(
