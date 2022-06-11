@@ -168,17 +168,17 @@ O serviço deve ser criado por um usuario prestador de serviço. [ok]
 
 **RF**
 
-* O usuario deve poder avaliar o serviço de 1 a 5.
-* O usario deve poder adicionar um comentario ao serviço fornecido
+* O usuario deve poder avaliar o serviço de 1 a 5. [ok]
+* O usario deve poder adicionar um comentario ao serviço fornecido [ok]
 
 **RN**
 
-* O usuario não pode avaliar um serviço ao qual não foi consumido por ele.
+* O usuario não pode avaliar um serviço ao qual não foi consumido por ele. [ok]
 
 
 **RNF**
 
-* Deve ser usado token jwt para autenticar a rota.
+* Deve ser usado token jwt para autenticar a rota. [ok]
 
 # ROTAS PUBLICAS (sem login)
 
