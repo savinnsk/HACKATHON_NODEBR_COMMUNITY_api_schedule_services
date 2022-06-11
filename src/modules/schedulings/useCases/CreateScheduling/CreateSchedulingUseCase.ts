@@ -2,6 +2,8 @@ import { inject, injectable } from "tsyringe";
 
 import { IAppointmentsRepository } from "@modules/schedulings/Interfacerepositories/IAppointmentsRepository";
 import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
+import { AppError } from "@shared/errors/AppError";
 
 interface IRequest {
   type: string;
@@ -21,7 +23,9 @@ class CreateSchedulingUseCase {
     @inject("SchedulingsRepository")
     private schedulingsRepository: ISchedulingsRepository,
     @inject("AppointmentsRepository")
-    private appointmentsRepository: IAppointmentsRepository
+    private appointmentsRepository: IAppointmentsRepository,
+    @inject("DayjsDateProvider")
+    private dayjsDateProvider: IDateProvider
   ) {}
 
   async execute({
@@ -37,6 +41,12 @@ class CreateSchedulingUseCase {
       price,
       service_provider,
     })) as ISchedulingDTO;
+
+    // validando se a data que estou repassando está no futuro
+    appointments.forEach(async (appointment) => {
+      if (await this.dayjsDateProvider.compareIfBeforeNow(appointment))
+        throw new AppError("Appointment must to be on the future");
+    });
 
     await this.appointmentsRepository.create({
       scheduling: scheduling.id,

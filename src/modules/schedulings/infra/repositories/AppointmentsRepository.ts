@@ -5,6 +5,7 @@ import { ICreateAppointmentDTO } from "@modules/schedulings/dto/ICreateAppointme
 import { IAppointmentsRepository } from "@modules/schedulings/Interfacerepositories/IAppointmentsRepository";
 
 import { Appointment } from "../entities/Appointment";
+import { IUpdateFeedbackDTO } from "@modules/schedulings/dto/IUpdateFeedbackDTO";
 
 class AppointmentsRepository implements IAppointmentsRepository {
   private repository: Repository<Appointment>;
@@ -56,6 +57,28 @@ class AppointmentsRepository implements IAppointmentsRepository {
       .set({
         user_id,
         available: false,
+      })
+      .where("id = :id", {
+        id,
+      })
+      .execute();
+
+    const appointment = await this.repository.findOne(id);
+
+    return appointment;
+  }
+
+  async updateFeedbackOnAppointment({
+    id,
+    comment,
+    rating,
+  }: IUpdateFeedbackDTO): Promise<Appointment> {
+    await this.repository
+      .createQueryBuilder()
+      .update(Appointment)
+      .set({
+        comment,
+        rating
       })
       .where("id = :id", {
         id,

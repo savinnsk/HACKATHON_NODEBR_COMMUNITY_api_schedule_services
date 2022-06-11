@@ -9,6 +9,7 @@ import { ListServiceProviderAllServicesController } from "@modules/schedulings/u
 import { ListUserAllServicesController } from "@modules/schedulings/useCases/ListUserAllServices/ListUserAllServicesController";
 import { RequestSchedulingController } from "@modules/schedulings/useCases/RequestScheduling/RequestSchedulingController";
 import { SearchSchedulingController } from "@modules/schedulings/useCases/SearchScheduling/SearchSchedulingController";
+import { UpdateFeedbackController } from "@modules/schedulings/useCases/UpdateFeedback/UpdateFeedbackController";
 
 import { ensureServiceProviderAuthenticated } from "../middlewares/ensureServiceProviderAuthenticated";
 import { ensureUserAuthenticated } from "../middlewares/ensureUserAuthenticated";
@@ -25,6 +26,7 @@ const requestSchedulingController = new RequestSchedulingController();
 const listServiceProviderAllServicesController =
   new ListServiceProviderAllServicesController();
 const listUserAllServicesController = new ListUserAllServicesController();
+const updateFeedbackController = new UpdateFeedbackController();
 
 schedulingsRoutes.post(
   "/create",
@@ -70,6 +72,12 @@ schedulingsRoutes.patch(
   "/request/:id",
   ensureUserAuthenticated,
   requestSchedulingController.handle
+);
+
+schedulingsRoutes.post(
+  "/feedback/:id",
+  ensureUserAuthenticated,
+  updateFeedbackController.handle
 );
 
 export { schedulingsRoutes };
