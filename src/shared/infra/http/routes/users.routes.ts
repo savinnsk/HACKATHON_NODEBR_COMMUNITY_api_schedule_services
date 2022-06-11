@@ -25,7 +25,6 @@ usersRoutes.put(
   ensureUserAuthenticated,
   markAppoimentController.handle
 );
-
 usersRoutes.put("/", ensureUserAuthenticated, editUserController.handle);
 
 usersRoutes.patch(
