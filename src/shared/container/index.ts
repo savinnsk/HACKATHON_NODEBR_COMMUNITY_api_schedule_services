@@ -2,12 +2,12 @@ import { container } from "tsyringe";
 
 import { AppointmentsRepository } from "@modules/schedulings/infra/repositories/AppointmentsRepository";
 import { SchedulingsRepository } from "@modules/schedulings/infra/repositories/SchedulingsRepository";
-import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppointmentsRepository";
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
+import { IAppointmentsRepository } from "@modules/schedulings/Interfacerepositories/IAppointmentsRepository";
+import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
 import { ServiceProvidersRepository } from "@modules/service_providers/infra/repositories/ServiceProvidersRepository";
 import { IServiceProvidersRepository } from "@modules/service_providers/repositories/IServiceProvidersRepository";
 import { UsersRepository } from "@modules/users/infra/repositories/UsersRepository";
-import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { IUsersRepository } from "@modules/users/InterfaceRepositories/IUsersRepository";
 
 container.registerSingleton<IUsersRepository>(
   "UsersRepository",

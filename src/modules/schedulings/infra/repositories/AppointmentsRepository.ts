@@ -2,7 +2,7 @@
 import { getRepository, Repository } from "typeorm";
 
 import { ICreateAppointmentDTO } from "@modules/schedulings/dto/ICreateAppointmentDTO";
-import { IAppointmentsRepository } from "@modules/schedulings/repositories/IAppointmentsRepository";
+import { IAppointmentsRepository } from "@modules/schedulings/Interfacerepositories/IAppointmentsRepository";
 
 import { Appointment } from "../entities/Appointment";
 

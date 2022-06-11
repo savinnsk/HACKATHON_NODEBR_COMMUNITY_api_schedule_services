@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
 import { Scheduling } from "@modules/schedulings/infra/entities/Scheduling";
-import { ISchedulingsRepository } from "@modules/schedulings/repositories/ISchedulingsRepository";
+import { ISchedulingsRepository } from "@modules/schedulings/Interfacerepositories/ISchedulingsRepository";
 
 @injectable()
 class ListSchedulingsUseCase {
