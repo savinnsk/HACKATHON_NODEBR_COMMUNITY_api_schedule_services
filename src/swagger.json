@@ -81,10 +81,28 @@
                     },
 
                     "400":{
-                        "description": "Email or password incorrect!"
+                        "description": "Email ou password incorretos!"
                     }
                 }
             }      
+        },
+        "/users/enable_service_provider":{
+            "patch":{
+                "tags":["Users"],
+                "summary":"Tornar um provedor",
+                "description":"Torna o usuário um provedor de serviço",
+                "security":[
+                    {"bearerAuth":[]}
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Successo"
+                    },
+                    "400":{
+                        "description":"Usuário já é um prestador de serviço"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -115,5 +133,14 @@
                 "password": "password"
             }
         }
+    },
+    "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
+  }
 }
