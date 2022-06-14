@@ -14,11 +14,11 @@ class DisableSchedulingUseCase {
     const scheduling = await this.schedulingsRepository.findById(id);
 
     if (!scheduling) {
-      throw new AppError("The scheduling does't exists");
+      throw new AppError("O agendamento não existe");
     }
 
     if (scheduling.service_provider_id !== service_provider_id) {
-      throw new AppError("the service provider is not the owner");
+      throw new AppError("O prestador de serviço não é o dono");
     }
 
     await this.schedulingsRepository.disableScheduling(scheduling.id);

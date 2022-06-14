@@ -22,22 +22,21 @@ class RequestSchedulingUseCase {
       appointment_id
     );
 
-    if (!appointment) throw new AppError("Appointment not exists");
+    if (!appointment) throw new AppError("A marcação do horário não existe");
 
     if (!appointment.available)
-      throw new AppError("Appointment is not available");
+      throw new AppError("A marcação do horário não está disponível");
 
-    // validar se o horário do agendamento é no passado
     if (
       await this.dayjsDateProvider.compareIfBeforeNow(
         appointment.appointment_time
       )
     ) {
-      throw new AppError("Appointment must to be on the future");
+      throw new AppError("A marcação do horário precisa ser no futuro");
     }
 
     if (appointment.scheduling.service_provider_id === user_id)
-      throw new AppError("Request not allowed");
+      throw new AppError("O usuário não pode ser o prestador do serviço");
 
     const appointmentRequest =
       await this.appointmentsRepository.updateUserOnAppointment(
