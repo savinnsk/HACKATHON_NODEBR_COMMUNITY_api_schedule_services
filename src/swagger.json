@@ -29,6 +29,62 @@
                     }
                 }
             }
+        },
+        "/users/session":{
+            "post":{
+                "tags":["Users"],
+                "summary":"sessão",
+                "description":"Criar uma sessão autenticada",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties": {
+                                    "email":{
+                                        "type":"string"
+                                    },
+                                    "password":{
+                                        "type":"string"
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "content": {
+                            "application/json": {
+                              "schema": {
+                                "type": "object",
+                                "properties": {
+                                  "token": {
+                                    "type": "string"
+                                    },
+                                    "user":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                  }
+                              }
+                            }
+                        }
+                    },
+
+                    "400":{
+                        "description": "Email or password incorrect!"
+                    }
+                }
+            }      
         }
     },
     "definitions": {
