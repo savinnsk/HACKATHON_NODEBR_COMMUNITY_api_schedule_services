@@ -38,7 +38,7 @@ export async function ensureServiceProviderAuthenticated(
     const user = await usersRepository.findServiceProviderById(user_id);
 
     if (!user) {
-      throw new Error("Usuário não existe");
+      throw new AppError("Usuário não existe");
     }
 
     request.service_provider = {

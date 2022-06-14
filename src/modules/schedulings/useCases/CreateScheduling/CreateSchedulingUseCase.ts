@@ -45,7 +45,7 @@ class CreateSchedulingUseCase {
     // validando se a data que estou repassando está no futuro
     appointments.forEach(async (appointment) => {
       if (await this.dayjsDateProvider.compareIfBeforeNow(appointment))
-        throw new AppError("Appointment must to be on the future");
+        throw new AppError("Agendamento precisa ser no futuro");
     });
 
     await this.appointmentsRepository.create({

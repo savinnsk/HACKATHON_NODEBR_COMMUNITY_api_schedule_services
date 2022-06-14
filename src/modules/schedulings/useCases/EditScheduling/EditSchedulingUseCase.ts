@@ -18,11 +18,11 @@ class EditSchedulingUseCase {
     const scheduling = await this.schedulingRepository.findById(id);
 
     if (!scheduling) {
-      throw new AppError("The scheduling doesn't exist");
+      throw new AppError("O agendamento não existe");
     }
 
     if (scheduling.service_provider_id !== service_provider_id) {
-      throw new AppError("the service provider is not the owner");
+      throw new AppError("O prestador de serviço não é o dono");
     }
     await this.schedulingRepository.editScheduling({
       id,
