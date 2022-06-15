@@ -206,6 +206,52 @@
                 }
             }
         }
+    },
+    "/scheduling":{
+        "get":{
+            "tags":["Scheduling"],
+            "summary":"Listar",
+            "description":"Listar todos os Serviços Disponivéis",
+            "responses":{
+                "200":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "properties":{
+                                    "type":{
+                                    "type":"string"
+                                        },
+                                    "description": {
+                                    "type":"string"
+                                        },
+                                    "price": {
+                                    "type":"number"
+                                                },
+                                    "appointments": {
+                                    "type":"object",
+                                    "properties":{
+                                        "id":{
+                                            "type":"string"
+                                        },
+                                        "appointment_time":{
+                                            "type":"string"
+                                        },
+                                        "available":{
+                                            "type":"boolean"
+                                        }
+                                    }
+                                  }
+
+                                }
+                            }
+                        }
+                    }
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
+        }
     }
     },
     "definitions": {
@@ -249,7 +295,7 @@
                     "type":"number"
                 },
                 "appointments": {
-                    "type":"array"
+                    "type":"Array"
                 }
             },"example":{
                 "type": "faxina",
