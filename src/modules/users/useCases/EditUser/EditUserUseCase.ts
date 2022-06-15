@@ -20,9 +20,8 @@ class EditUserUseCase {
     email,
     password,
   }: IEditUserDTO): Promise<void> {
-    const user = await this.usersRepository.findByEmail(email);
-
-    if (user.id !== id) throw new AppError("Email não disponível");
+    // const user = await this.usersRepository.findByEmail(email);
+    // if (user.id !== id) throw new AppError("Email não disponível");
 
     await this.usersRepository.edit({
       id,

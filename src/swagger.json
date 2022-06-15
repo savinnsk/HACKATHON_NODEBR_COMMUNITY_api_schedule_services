@@ -103,6 +103,33 @@
                     }
                 }
             }
+        },
+        "/users":{
+            "put":{
+                "tags":["Users"],
+                "summary":"Editar usuário",
+                "description":"Editar dados do usuário",
+                "security":[
+                    {"bearerAuth":[]}
+                ],
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/definitions/User"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"Successo"
+                    },
+                    "400":{
+                        "description":"Email já em uso"
+                    }
+                }
+            }
         }
     },
     "definitions": {

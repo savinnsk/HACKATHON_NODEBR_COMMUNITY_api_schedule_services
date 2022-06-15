@@ -78,6 +78,8 @@ class UsersRepository implements IUsersRepository {
     email,
     password,
   }: IEditUserDTO): Promise<void> {
+    console.log(id);
+
     await this.repository
       .createQueryBuilder()
       .update(User)
