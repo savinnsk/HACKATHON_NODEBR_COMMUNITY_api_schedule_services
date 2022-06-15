@@ -179,7 +179,34 @@
                     }
                 }
             }
+        },
+        "/scheduling/create/":{
+        "post":{
+            "tags":["Scheduling"],
+            "summary":"Criar um serviço",
+            "description":"Criar um novo serviço",
+            "security":[
+                {"bearerAuth":[]}
+            ],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/definitions/Scheduling"
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "201":{
+                    "description":"Successo"
+                },
+                "400":{
+                    "description":"Provedor não existe"
+                }
+            }
         }
+    }
     },
     "definitions": {
         "User": {
@@ -208,7 +235,35 @@
                 "email": "exemplo@exemplo.com",
                 "password": "password"
             }
-        }
+        },
+        "Scheduling":{
+            "type": "object",
+            "properties":{
+                "type":{
+                    "type":"string"
+                    },
+                "description": {
+                    "type":"string"
+                },
+                "price": {
+                    "type":"number"
+                },
+                "appointments": {
+                    "type":"array"
+                }
+            },"example":{
+                "type": "faxina",
+                "description": "faxina completa",
+                "price": 100,
+                "appointments": [
+		            "2022-06-10 13:00:00",
+		            "2022-06-11 13:00:00",
+		            "2022-06-12 19:00:00",
+		            "2022-06-13 19:00:00"
+	            ]
+            }
+     
+    }
     },
     "components": {
     "securitySchemes": {
