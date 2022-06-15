@@ -104,6 +104,30 @@
                 }
             }
         },
+        "/users/appoiment":{
+            "put":{
+                "tags":["Users"],
+                "summary":"Agendamento",
+                "description":"Usuário fazer um agendamento de serviço",
+                "security":[
+                    {"bearerAuth":[]}
+                ],
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "appointment_id":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/users":{
             "put":{
                 "tags":["Users"],
@@ -127,6 +151,31 @@
                     },
                     "400":{
                         "description":"Email já em uso"
+                    }
+                }
+            }
+        },
+        "/service_providers/session":{
+            "post":{
+                "tags":["Service Providers"],
+                 "summary":"sessão",
+                "description":"Criar uma sessão autenticada",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties": {
+                                    "email":{
+                                        "type":"string"
+                                    },
+                                    "password":{
+                                        "type":"string"
+                                    }
+                                }
+
+                            }
+                        }
                     }
                 }
             }
