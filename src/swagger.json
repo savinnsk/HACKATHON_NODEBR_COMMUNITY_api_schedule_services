@@ -378,6 +378,36 @@
                 }
             }
         }
+    },
+    "/scheduling/delete/{id}":{
+        "delete":{
+            "tags":["Scheduling"],
+            "summary":"Deletar um serviço",
+            "description":"Deletar um serviço de algum provedor",
+            "security":[
+                {"bearerAuth":[]}
+            ],
+            "parameters":[
+                {
+                "name":"id",
+                "in":"path",
+                "description":"scheduling id",
+                "required": true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successo"
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
+            
+        }
     }
     },
     "definitions": {
