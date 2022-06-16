@@ -349,6 +349,35 @@
                 }
             }
         }
+    },
+    "/scheduling/disable/{id}":{
+        "put":{
+            "tags":["Scheduling"],
+            "summary":"Desabilitar um serviço",
+            "description":"Desabilitar um serviço de criado por algum provedor",
+            "security":[
+                {"bearerAuth":[]}
+            ],
+           "parameters":[
+                {
+                "name":"id",
+                "in":"path",
+                "description":"scheduling id",
+                "required": true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successo"
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
+        }
     }
     },
     "definitions": {
