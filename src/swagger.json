@@ -380,7 +380,7 @@
         }
     },
     "/scheduling/delete/{id}":{
-        "delete":{
+        "delete":{  
             "tags":["Scheduling"],
             "summary":"Deletar um serviço",
             "description":"Deletar um serviço de algum provedor",
@@ -407,6 +407,53 @@
                 }
             }
             
+        }
+    },
+    "/scheduling/request/{id}":{
+        "patch":{
+            "tags":["Scheduling"],
+            "summary":"Agendar serviço",
+            "description":"Agendar algum serviço disponivél",
+            "security":[
+                {"bearerAuth":[]}
+            ],
+            "parameters":[
+                {
+                "name":"id",
+                "in":"path",
+                "description":"scheduling id",
+                "required": true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Successo"
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
+        }
+    },
+    "/scheduling/user/services":{
+        "get":{
+            "tags":["Scheduling"],
+            "summary":"Listar serviços do usuario",
+            "description":"Listar todos os serviços do usuario",
+            "security":[
+                {"bearerAuth":[]}
+            ],
+            "responses":{
+                "200":{
+                    "description":"Array de agendamentos"
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
         }
     }
     },
