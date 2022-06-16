@@ -13,7 +13,7 @@ class SearchSchedulingController {
       description,
       type,
       page,
-      limit
+      limit,
     });
 
     return response.json(schedulings);

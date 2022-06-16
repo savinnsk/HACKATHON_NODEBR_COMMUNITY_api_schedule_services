@@ -252,6 +252,103 @@
                 }
             }
         }
+    },
+    "/scheduling/search": {
+        "get":{
+            "tags":["Scheduling"],
+            "summary":"Buscar e Paginação",
+            "description":"Buscar agendamento pela descrição ou tipo",
+            "parameters":[
+                {
+                    "name":"description",
+                    "in":"query",
+                    "description":"buscar agendamento pela descrição",
+                    "required":false,
+                    "schema":{
+                        "type":"string"
+                    }
+                },
+                {
+                    "name":"type",
+                    "in":"query",
+                    "description":"buscar agendamento pelo tipo",
+                    "required":false,
+                    "schema":{
+                        "type":"string"
+                    }
+
+                },
+                {
+                    "name":"limit",
+                    "in":"query",
+                    "description":"paginar os agendamentos",
+                    "required":false,
+                    "schema":{
+                        "type":"integer"
+                    }
+                }
+            ],
+            "responses":{
+                "200":{
+                    "description":"Array de agendamentos"
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
+        }
+    },
+    "/scheduling/edit/{id}":{
+        "put":{
+            "tags":["Scheduling"],
+            "summary":"Editar serviço",
+            "description":"Editar um serviço criado pelo provedor",
+            "security":[
+                {"bearerAuth":[]}
+            ],
+            "parameters":[
+                {
+                "name":"id",
+                "in":"path",
+                "description":"scheduling id",
+                "required": true,
+                "schema":{
+                    "type":"string"
+                }
+            }
+            ],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "type":{
+                                    "type":"string"
+                                },
+                                "description":{
+                                    "type":"string"
+                                },
+                                "available_status":{
+                                    "type":"boolean"
+                                },
+                                "price":{
+                                    "type":"integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{
+                    "description":"Successo"
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
+        }
     }
     },
     "definitions": {
