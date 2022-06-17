@@ -424,10 +424,27 @@
                 "description":"scheduling id",
                 "required": true,
                 "schema":{
-                    "type":"string"
+                "type":"string"
                 }
             }
             ],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "comment":{
+                                    "type":"string"
+                                },
+                                "rating":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "responses":{
                 "200":{
                     "description":"Successo"
@@ -446,6 +463,52 @@
             "security":[
                 {"bearerAuth":[]}
             ],
+            "responses":{
+                "200":{
+                    "description":"Array de agendamentos"
+                },
+                "400":{
+                    "description":"Error"
+                }
+            }
+        }
+    },
+    "/scheduling/feedback/{id}":{
+        "post":{
+            "tags":["Scheduling"],
+            "summary":"feedback",
+            "description":"Usuário fazer um feedback de um serviço consumido",
+            "security":[
+                {"bearerAuth":[]}
+            ],
+            "parameters":[
+                {
+                "name":"id",
+                "in":"path",
+                "description":"scheduling id",
+                "required": true,
+                "schema":{
+                "type":"string"
+                }
+            }
+            ],
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "type":"object",
+                            "properties":{
+                                "comment":{
+                                    "type":"string"
+                                },
+                                "rating":{
+                                    "type":"string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "responses":{
                 "200":{
                     "description":"Array de agendamentos"
