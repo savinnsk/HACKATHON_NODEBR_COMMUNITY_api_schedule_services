@@ -477,7 +477,7 @@
         "post":{
             "tags":["Scheduling"],
             "summary":"feedback",
-            "description":"Usuário fazer um feedback de um serviço consumido",
+            "description":"Usuário fazer um feedback de um serviço consumido comim comentario e uma nota de 1 a 5",
             "security":[
                 {"bearerAuth":[]}
             ],
@@ -502,7 +502,7 @@
                                     "type":"string"
                                 },
                                 "rating":{
-                                    "type":"string"
+                                    "type":"integer"
                                 }
                             }
                         }
