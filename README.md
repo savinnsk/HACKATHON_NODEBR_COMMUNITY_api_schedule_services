@@ -3,6 +3,8 @@
 **O projeto deverá cadastrar Serviços, agendar/solicitar serviços com data e hora, Avaliação e Comentário.**
 
 
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Agendamentos%20de%20Servi%C3%A7os&uri=https%3A%2F%2Fapi-agendamentos.com%2Finsomnia.json)
+
 # ROTAS PRIVADAS (precisa de login)
 
 ## criar um prestador de serviços
