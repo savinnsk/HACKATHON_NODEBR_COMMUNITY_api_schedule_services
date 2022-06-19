@@ -3,7 +3,7 @@
 **O projeto deverá cadastrar Serviços, agendar/solicitar serviços com data e hora, Avaliação e Comentário.**
 
 
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://drive.google.com/file/d/1EGEGlvqi8DQz6Guo7oW-QZqgesXI5XZI/view?usp=sharing)
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://raw.githubusercontent.com/savinnsk/Api_Agendamento_Servico/main/Insomnia.json)
 
 # ROTAS PRIVADAS (precisa de login)
 
