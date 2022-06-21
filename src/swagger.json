@@ -177,7 +177,41 @@
                             }
                         }
                     }
+                    
+                },
+                "responses":{
+                    "200":{
+                        "content": {
+                            "application/json": {
+                              "schema": {
+                                "type": "object",
+                                "properties": {
+                                  "token": {
+                                    "type": "string"
+                                    },
+                                    "user":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                  }
+                              }
+                            }
+                        }
+                    },
+
+                    "400":{
+                        "description": "Email ou password incorretos!"
+                    }
                 }
+                
+                
             }
         },
         "/scheduling/create/":{
