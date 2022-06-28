@@ -11,7 +11,7 @@
 - [Docker](https://www.docker.com/)
 - [NodeJS](https://nodejs.org/pt-br/)
 - [Postgres-Sql](https://www.postgresql.org/)
-- [TypeScript](https://www.typescriptlang.org
+- [TypeScript](https://www.typescriptlang.org/)
 - JWT
 - BYcript
 - Tsyringe
