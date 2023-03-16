@@ -1,6 +1,5 @@
-# Api de Agendamento de serviços
 
-**O projeto deverá cadastrar Serviços, agendar/solicitar serviços com data e hora, Avaliação e Comentário.**
+This project aims to develop a system that allows users to register services, schedule or request services for a specific date and time, and provide ratings and comments. The system will provide a user-friendly interface where users can easily search for services, select the desired date and time, and make a request. The registered services will be stored in a database, which will allow users to access them at any time. Additionally, the system will provide a feedback mechanism, where users can rate and comment on the quality of the services they receive. The feedback will be used to improve the quality of the services offered and to maintain high levels of customer satisfaction. The project will be developed using modern web development technologies and will be designed to be scalable, secure, and easy to maintain.
 
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://raw.githubusercontent.com/savinnsk/Api_Agendamento_Servico/main/Insomnia.json)
 
